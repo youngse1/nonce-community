@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>데스커 베이스캠프 with nonce</title>
+<meta name="description" content="8개 창업 커뮤니티가 함께하는 서울대입구역 코워킹 스페이스, 데스커 베이스캠프 with nonce 27년 멤버 모집">
+<meta property="og:title" content="데스커 베이스캠프 with nonce · 27년 멤버 모집">
+<meta property="og:description" content="‘성장’을 경험할 수 있는 공간, 데스커 베이스캠프 with 논스">
+<meta property="og:image" content="https://nonce.community/basecamp/img/hero.jpg">
+<link rel="preload" href="fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero_video_poster.jpg" as="image">
+<style>
+@font-face{font-family:"Pretendard";src:url(fonts/PretendardVariable.woff2) format("woff2");font-weight:45 920;font-display:swap}
+/* 디자인 가이드는 폭 640 기준. --u 한 칸 = 가이드의 1px */
+:root{
+  --u:1.15px;
+  --bg:#121212;--text:#f1f1f1;--blue:#093dec;--card:#212324;
+  --line:rgba(255,255,255,.12);--rule:rgba(255,255,255,.32);--muted:#a7a9ab;
+}
+:root,:root[data-theme="dark"],:root:not([data-theme="light"]){color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden;letter-spacing:-.01em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+b,strong{font-weight:700;color:#fff}
+.col{width:calc(640*var(--u));max-width:100%;margin:0 auto;padding:0 calc(48*var(--u))}
+.ico{width:calc(27*var(--u));height:calc(27*var(--u));object-fit:contain;flex:none}
+
+/* 등장 효과 */
+.rv{transition:opacity .9s ease,transform .9s ease}
+.rv.pre{opacity:0;transform:translateY(24px)}
+.rv.pre.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv.pre{opacity:1;transform:none;transition:none}}
+
+/* 공통 글자 */
+.t32{font-size:calc(32*var(--u));font-weight:700;line-height:1.41;letter-spacing:-.02em;color:var(--text)}
+.bar{width:calc(50*var(--u));height:calc(5*var(--u));background:var(--blue)}
+.p20{font-size:calc(20*var(--u));line-height:calc(34*var(--u));letter-spacing:-.015em}
+.p20 b{font-weight:600}
+.h-sec{display:flex;align-items:center;gap:calc(10*var(--u));font-size:calc(24*var(--u));font-weight:700;line-height:1.3;letter-spacing:-.02em}
+.h-sec::after{content:"";flex:1;height:1px;background:var(--rule);margin-left:calc(20*var(--u))}
+.card{background:var(--card);border-radius:calc(12*var(--u))}
+.chd{font-size:calc(21*var(--u));font-weight:600;line-height:1.3;padding-bottom:calc(20*var(--u));border-bottom:1px solid var(--line);margin-bottom:calc(20*var(--u));letter-spacing:-.02em}
+.cbody{font-size:calc(15.5*var(--u));line-height:calc(27*var(--u));color:#e4e5e6}
+.badge{display:inline-flex;align-items:center;height:calc(27*var(--u));padding:0 calc(10*var(--u));border-radius:calc(4*var(--u));background:var(--blue);color:#fff;font-size:calc(15.5*var(--u));font-weight:700;letter-spacing:-.01em}
+.badge.w{background:#fff;color:var(--blue)}
+
+/* 1. 첫 화면 */
+.hero{position:relative}
+.hero .top{position:relative;height:calc(258*var(--u))}
+.hero .logo{position:absolute;left:calc(45*var(--u));top:calc(41.6*var(--u));height:calc(12.2*var(--u));width:auto}
+.hero h1{position:absolute;left:calc(40.5*var(--u));top:calc(86*var(--u));font-size:calc(40*var(--u));font-weight:700;line-height:calc(54*var(--u));letter-spacing:-.025em;color:#fff;white-space:nowrap}
+.hero h1 u{position:relative;text-decoration:none;z-index:0}
+.hero h1 u::before{content:"";position:absolute;z-index:-1;left:calc(1.3*var(--u));right:calc(-1*var(--u));top:calc(41.5*var(--u));height:calc(14.5*var(--u));background:var(--blue)}
+.hero h1 .l2{display:block}
+/* 신청 마감 배지 — 제목 두 줄 오른쪽, 두 줄 높이에 맞춘 원 */
+.hero h1 .due{position:absolute;left:calc(100% + 14*var(--u));top:50%;transform:translateY(-50%);width:calc(100*var(--u));height:calc(100*var(--u));border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;font-size:calc(17*var(--u));font-weight:700;line-height:1.3;letter-spacing:-.02em;color:#fff}
+.hero .photo{position:relative;width:min(100%,1280px);margin:0 auto;aspect-ratio:16/9;overflow:hidden;background:#222}
+.hero .photo video{display:block;width:100%;height:100%;object-fit:cover}
+/* 첫 화면 영상 — 소리 없이 자동 재생, 오른쪽 아래 버튼으로 멈춤·소리 켜기 */
+.vid-ctl{position:absolute;right:calc(16*var(--u));bottom:calc(16*var(--u));display:flex;gap:calc(8*var(--u))}
+.vid-btn{display:inline-flex;align-items:center;justify-content:center;gap:calc(6*var(--u));height:calc(38*var(--u));min-width:calc(38*var(--u));padding:0 calc(11*var(--u));border:0;border-radius:calc(19*var(--u));background:rgba(18,18,18,.6);color:#fff;font:inherit;font-size:calc(13*var(--u));font-weight:600;cursor:pointer;transition:background .2s}
+.vid-btn:hover{background:rgba(18,18,18,.85)}
+.vid-btn svg{width:calc(16*var(--u));height:calc(16*var(--u));flex:none}
+
+/* 2. 소개 */
+.intro{padding-top:calc(62*var(--u))}
+.intro .bar{margin:calc(30*var(--u)) 0 calc(38*var(--u))}
+.intro .p20+.p20{margin-top:calc(34*var(--u))}
+.intro .p20 .lead{font-weight:600;color:#fff}
+
+/* 3. Step forward */
+.step{padding-top:calc(88*var(--u))}
+.step .bar{margin:calc(30*var(--u)) 0 calc(30*var(--u))}
+.stories{display:grid;grid-template-columns:1fr 1fr;column-gap:calc(55*var(--u));row-gap:calc(55*var(--u))}
+.stories img{width:100%;aspect-ratio:243.9/239.8;object-fit:cover}
+.essay{padding-top:calc(66*var(--u))}
+.essay .p20+.p20{margin-top:calc(34*var(--u))}
+
+/* 4. 입주 커뮤니티 */
+.comm{padding-top:calc(110*var(--u))}
+.comm .bar{margin:calc(30*var(--u)) 0 calc(30*var(--u))}
+.comm .p20{margin-bottom:calc(36*var(--u))}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:calc(16*var(--u))}
+.cm{padding:calc(26*var(--u)) calc(24*var(--u)) calc(26*var(--u));display:flex;flex-direction:column}
+.cm .lg{height:calc(46*var(--u));display:flex;align-items:center;margin-bottom:calc(22*var(--u))}
+.cm .lg img{height:var(--h);max-width:calc(190*var(--u));width:auto;object-fit:contain}
+.cm h3{font-size:calc(21*var(--u));font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.cm .ty{font-size:calc(14*var(--u));color:var(--muted);margin-top:calc(4*var(--u));line-height:1.45}
+.cm .sl{font-size:calc(15.5*var(--u));line-height:calc(24*var(--u));color:#fff;font-weight:500;margin:calc(16*var(--u)) 0 calc(18*var(--u));padding-left:calc(12*var(--u));border-left:calc(3*var(--u)) solid var(--blue)}
+.cm dl{margin-top:auto;border-top:1px solid var(--line);padding-top:calc(14*var(--u));display:grid;grid-template-columns:auto 1fr;column-gap:calc(14*var(--u));row-gap:calc(7*var(--u));font-size:calc(13.5*var(--u));line-height:1.45}
+.cm dt{color:var(--muted)}
+.cm dd{color:#e9eaeb}
+.mix{margin-top:calc(16*var(--u));padding:calc(28*var(--u)) calc(32*var(--u)) calc(30*var(--u))}
+.mix .stack{display:flex;height:calc(14*var(--u));border-radius:calc(7*var(--u));overflow:hidden;gap:2px;margin-bottom:calc(20*var(--u))}
+.mix .stack i{display:block;height:100%}
+.mix ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:calc(24*var(--u));row-gap:calc(10*var(--u));font-size:calc(15*var(--u))}
+.mix li{display:flex;align-items:center;gap:calc(8*var(--u))}
+.mix li i{width:calc(9*var(--u));height:calc(9*var(--u));border-radius:2px;flex:none}
+.mix li em{font-style:normal;margin-left:auto;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+
+/* 5. 2025년 일어난 일들 */
+.ach{padding-top:calc(100*var(--u))}
+.ach .bar{margin:calc(30*var(--u)) 0 calc(30*var(--u))}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(12*var(--u))}
+.stat{padding:calc(22*var(--u)) calc(20*var(--u)) calc(20*var(--u))}
+.stat b{display:block;font-size:calc(34*var(--u));font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat b small{font-size:.55em;font-weight:600;margin-left:.08em}
+.stat span{display:block;font-size:calc(14*var(--u));color:#d6d7d8;margin-top:calc(10*var(--u));line-height:1.45}
+.stat.wide{grid-column:span 3;display:flex;align-items:center;justify-content:space-between;gap:calc(16*var(--u))}
+.stat.wide span{margin-top:0}
+.ach .src{font-size:calc(12*var(--u));color:#8b8d8f;margin-top:calc(12*var(--u));text-align:right}
+.ach .lead{text-align:center;margin-top:calc(80*var(--u))}
+.ach .lead b{font-weight:700}
+.chips{display:flex;flex-direction:column;align-items:center;gap:calc(13*var(--u));margin-top:calc(16*var(--u))}
+.yr{text-align:center;font-size:calc(14*var(--u));font-weight:700;color:#7d9bff;letter-spacing:.08em;margin-top:calc(46*var(--u))}
+.ach .src{text-align:center}
+.chips+.src{margin-top:calc(22*var(--u))}
+.chips div{display:flex;flex-wrap:wrap;justify-content:center;gap:calc(13*var(--u)) calc(7*var(--u))}
+.chips span{flex:0 0 auto}
+.chips span{display:inline-flex;align-items:center;min-height:calc(39.5*var(--u));padding:calc(8*var(--u)) calc(14.5*var(--u));border-radius:calc(10*var(--u));background:var(--card);font-size:calc(14.5*var(--u));line-height:1.35;letter-spacing:-.02em;max-width:100%}
+.dots{display:flex;flex-direction:column;align-items:center;gap:calc(8*var(--u));margin:calc(28*var(--u)) 0 0}
+.dots i{width:calc(3.1*var(--u));height:calc(3.1*var(--u));border-radius:50%;background:#3a3c3e}
+
+/* 6. 1년의 기록 */
+.rec{padding-top:calc(110*var(--u))}
+.rec .bar{margin:calc(30*var(--u)) 0 calc(30*var(--u))}
+.rec .p20{margin-bottom:calc(40*var(--u))}
+.quotes{display:flex;flex-direction:column;gap:calc(30*var(--u))}
+.quotes{gap:calc(16*var(--u))}
+.qt{padding:calc(24*var(--u));display:grid;grid-template-columns:calc(196*var(--u)) 1fr;column-gap:calc(24*var(--u));align-items:start}
+.qt img{width:100%;aspect-ratio:602/401;object-fit:cover;border-radius:calc(8*var(--u));grid-row:span 3}
+.qt blockquote{font-size:calc(18*var(--u));font-weight:700;line-height:1.45;letter-spacing:-.025em;color:#fff;margin:calc(2*var(--u)) 0 calc(10*var(--u))}
+.qt blockquote br{display:none}
+.qt p{font-size:calc(14*var(--u));line-height:calc(23*var(--u));color:#d9dadb}
+.qt .who{display:block;margin-top:calc(10*var(--u));font-size:calc(13*var(--u));color:var(--muted)}
+
+/* 7. 2026 소식 */
+.news{padding-top:calc(110*var(--u))}
+.news .bar{margin:calc(30*var(--u)) 0 calc(30*var(--u))}
+.ngrid{display:flex;flex-direction:column;gap:calc(16*var(--u))}
+.nw{padding:calc(28*var(--u)) calc(32*var(--u)) calc(30*var(--u))}
+.nw .badge{margin-bottom:calc(16*var(--u))}
+.nw h3{font-size:calc(21*var(--u));font-weight:700;letter-spacing:-.02em;line-height:1.4;margin-bottom:calc(10*var(--u))}
+.now{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(12*var(--u));margin-top:calc(44*var(--u))}
+.now .stat b{font-size:calc(30*var(--u))}
+.fields{margin-top:calc(44*var(--u))}
+.fields h3{font-size:calc(21*var(--u));font-weight:600;margin-bottom:calc(18*var(--u));letter-spacing:-.02em}
+.fields .tags{display:flex;flex-wrap:wrap;gap:calc(8*var(--u))}
+.fields .tags span{display:inline-flex;align-items:center;height:calc(36*var(--u));padding:0 calc(14*var(--u));border-radius:calc(10*var(--u));background:var(--card);font-size:calc(14.5*var(--u))}
+.fields .tags span em{font-style:normal;color:var(--muted);margin-left:calc(6*var(--u));font-size:.9em}
+
+/* 8. 신청 */
+.cta{padding:calc(110*var(--u)) 0 calc(66*var(--u));text-align:center}
+.cta p{font-size:calc(22*var(--u));font-weight:700;line-height:calc(37*var(--u));letter-spacing:-.025em}
+.cta a{display:inline-flex;align-items:center;justify-content:center;width:calc(174.5*var(--u));height:calc(42*var(--u));margin-top:calc(44*var(--u));border-radius:calc(3*var(--u));background:var(--blue);color:#fff;font-size:calc(16*var(--u));font-weight:700;transition:filter .2s}
+.cta a:hover{filter:brightness(1.15)}
+.cta-top{padding:calc(56*var(--u)) 0 0}
+.cta-top a{margin-top:0}
+
+/* 9. 자세히 보기 */
+.detail{padding-top:calc(70*var(--u))}
+.detail .h-sec{margin:calc(36*var(--u)) 0 calc(40*var(--u));padding-left:0}
+.map{display:block;width:calc(518*var(--u));max-width:100%;margin:0 auto;aspect-ratio:518/547;object-fit:cover}
+.where{margin-top:calc(25*var(--u));padding:calc(18*var(--u)) calc(21*var(--u));font-size:calc(15.2*var(--u));line-height:1.4;letter-spacing:-.02em}
+.fac{padding:calc(28*var(--u)) calc(32*var(--u)) calc(38*var(--u))}
+.fac+.fac{margin-top:calc(30*var(--u))}
+.fac h3{font-size:calc(20*var(--u));font-weight:700;letter-spacing:-.01em;padding:calc(1*var(--u)) 0 calc(20*var(--u));border-bottom:1px solid var(--line);margin-bottom:calc(30*var(--u))}
+.fac img{width:100%;aspect-ratio:480/266;object-fit:cover;border-radius:calc(8*var(--u))}
+/* 캐러셀(시설 사진·FAQ) — 옆으로 밀거나 화살표·점으로 넘긴다 */
+.car{position:relative}
+.car-track{position:relative;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;border-radius:calc(8*var(--u));outline-offset:3px}
+.car-track::-webkit-scrollbar{display:none}
+.car-track img{flex:0 0 100%;scroll-snap-align:start;border-radius:0}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:calc(36*var(--u));height:calc(36*var(--u));border:0;border-radius:50%;background:rgba(255,255,255,.88);color:#121212;box-shadow:0 2px 8px rgba(0,0,0,.25);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .2s,background .2s}
+.car-btn:hover{background:#fff}
+.car-btn svg{width:44%;height:44%}
+.car-btn.prev{left:calc(12*var(--u))}
+.car-btn.next{right:calc(12*var(--u))}
+.car-btn:disabled{opacity:0;pointer-events:none}
+.car-dots{display:flex;justify-content:center;gap:calc(6*var(--u));margin-top:calc(16*var(--u))}
+.car-dots button{width:calc(6*var(--u));height:calc(6*var(--u));padding:0;border:0;border-radius:calc(3*var(--u));background:var(--rule);cursor:pointer;transition:width .25s,background .25s}
+.car-dots button[aria-current="true"]{width:calc(18*var(--u));background:#fff}
+/* FAQ는 다음 카드가 살짝 보이게 하고, 화살표는 카드 아래 점 양옆에 둔다 */
+.car-faq .car-track{gap:calc(14*var(--u));border-radius:0}
+.car-faq .qa{flex:0 0 86%;scroll-snap-align:start}
+.car-faq .qa+.qa{margin-top:0}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:calc(16*var(--u));margin-top:calc(20*var(--u))}
+.car-bar .car-btn{position:static;transform:none;background:var(--card);color:#fff;box-shadow:none;border:1px solid var(--line)}
+.car-bar .car-btn:hover{background:#2c2e30}
+.car-bar .car-btn:disabled{opacity:.3}
+.car-bar .car-dots{margin-top:0}
+.fac p{margin-top:calc(26*var(--u));font-size:calc(16*var(--u));line-height:calc(27*var(--u));color:#e4e5e6}
+
+/* 10. 합류 안내 */
+.join{padding-top:calc(110*var(--u))}
+.join .bar{margin:calc(36*var(--u)) 0 calc(40*var(--u))}
+.join .p20{margin-bottom:calc(30*var(--u))}
+.mem{padding:calc(28*var(--u)) calc(32*var(--u)) calc(30*var(--u))}
+.mem+.mem{margin-top:calc(30*var(--u))}
+.mem ul{list-style:none;margin-top:calc(16*var(--u))}
+.mem li{position:relative;padding-left:calc(23*var(--u));font-size:calc(16*var(--u));line-height:calc(31*var(--u))}
+.mem li::before{content:"";position:absolute;left:calc(11*var(--u));top:calc(14*var(--u));width:calc(3*var(--u));height:calc(3*var(--u));border-radius:50%;background:#e4e5e6}
+.mem .note{text-align:right;font-size:calc(11*var(--u));color:#cfd0d1;margin-top:calc(16*var(--u))}
+
+.proc{padding-top:calc(80*var(--u))}
+.proc .h-sec,.lounge .h-sec,.faq .h-sec,.rules .h-sec,.jr .h-sec{margin-bottom:calc(34*var(--u))}
+.proc .p20,.lounge .p20{padding-left:calc(9*var(--u));font-size:calc(19*var(--u));letter-spacing:-.025em}
+.steps{display:flex;align-items:center;justify-content:space-between;margin:calc(32*var(--u)) 0 calc(36*var(--u))}
+.steps span{display:inline-flex;align-items:center;gap:calc(7*var(--u));height:calc(52*var(--u));padding:0 calc(17*var(--u));border-radius:999px;background:var(--card);font-size:calc(17*var(--u));white-space:nowrap}
+.steps span i{display:inline-flex;align-items:center;justify-content:center;width:calc(15*var(--u));height:calc(15*var(--u));border:1.4px solid #fff;border-radius:50%;font-style:normal;font-size:calc(9.5*var(--u));font-weight:700}
+.steps svg{width:calc(9*var(--u));height:calc(16*var(--u));flex:none}
+.stage{padding-left:calc(9*var(--u))}
+.stage+.stage{margin-top:calc(32*var(--u))}
+.stage h4{display:inline-block;font-size:calc(19*var(--u));font-weight:700;line-height:1.3;padding-bottom:calc(5*var(--u));border-bottom:calc(4*var(--u)) solid var(--blue)}
+.stage .ln{position:relative;display:flex;align-items:baseline;justify-content:space-between;font-size:calc(18*var(--u));line-height:1.4;padding:calc(17*var(--u)) 0 calc(14*var(--u))}
+.stage .ln+.ln{padding-top:calc(13*var(--u))}
+.stage .ln::after{content:"";position:absolute;left:0;right:calc(9*var(--u));bottom:0;height:1px;background:rgba(255,255,255,.28)}
+.stage .ln::before{content:"";position:absolute;right:calc(9*var(--u));bottom:calc(-2.5*var(--u));width:calc(5*var(--u));height:calc(5*var(--u));border-top:1px solid rgba(255,255,255,.4);border-right:1px solid rgba(255,255,255,.4);transform:rotate(45deg)}
+.stage .ln.last::after,.stage .ln.last::before{display:none}
+.stage .ln small{font-size:calc(10.5*var(--u));color:#9c9ea0;padding-right:calc(12*var(--u))}
+.stage .note{margin-top:calc(14*var(--u));font-size:calc(16*var(--u));line-height:1.6;color:#cfcfcf}
+.stage .note b{font-weight:700;color:var(--blue)}
+
+.lounge{padding-top:calc(90*var(--u))}
+.faq{padding-top:calc(90*var(--u))}
+.faq .h-sec{font-size:calc(26*var(--u))}
+.qa{padding:calc(23*var(--u)) calc(32*var(--u)) calc(30*var(--u))}
+.qa+.qa{margin-top:calc(18*var(--u))}
+.qa h4{font-size:calc(19*var(--u));font-weight:700;letter-spacing:-.02em;padding:calc(6*var(--u)) 0 calc(20*var(--u));border-bottom:1px solid var(--line);margin-bottom:calc(18*var(--u))}
+.qa p{font-size:calc(15*var(--u));line-height:calc(28*var(--u));color:#e4e5e6}
+
+.rules{padding-top:calc(90*var(--u))}
+.rules .p20{margin-bottom:calc(28*var(--u))}
+.rl{padding:calc(23*var(--u)) calc(32*var(--u)) calc(28*var(--u))}
+.rl+.rl{margin-top:calc(18*var(--u))}
+.rl ol{list-style:none;counter-reset:r}
+.rl li{counter-increment:r;display:flex;gap:calc(10*var(--u));font-size:calc(15*var(--u));line-height:calc(26*var(--u));color:#e4e5e6}
+.rl li+li{margin-top:calc(4*var(--u))}
+.rl li::before{content:counter(r,decimal-leading-zero);flex:none;width:calc(22*var(--u));color:var(--muted);font-variant-numeric:tabular-nums}
+
+.jr{padding-top:calc(90*var(--u))}
+.jr .p20{margin-bottom:calc(36*var(--u))}
+.cmm{padding:calc(24*var(--u)) calc(32*var(--u)) calc(30*var(--u))}
+.cmm .chd{font-size:calc(21*var(--u));font-weight:500}
+.cmm p{font-size:calc(15*var(--u));line-height:calc(26.5*var(--u));color:#e4e5e6}
+.cmm p+p{margin-top:calc(12*var(--u))}
+.cmm .sm{font-size:calc(13*var(--u));color:var(--muted);margin-top:calc(16*var(--u))}
+.tlc{margin-top:calc(34*var(--u));padding:calc(40*var(--u)) calc(32*var(--u)) calc(50*var(--u)) calc(48*var(--u))}
+.tlc-k{font-size:calc(15*var(--u));font-weight:700;color:#7d9bff;margin-bottom:calc(22*var(--u))}
+.tlc h5{font-size:calc(22*var(--u));font-weight:500;letter-spacing:-.01em;line-height:1.3}
+.tlc .grp{position:relative;margin:calc(14*var(--u)) 0 calc(18*var(--u)) calc(8*var(--u));padding:calc(8*var(--u)) 0 calc(6*var(--u))}
+.tlc .grp::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(255,255,255,.35)}
+.tlc .grp.end{margin-bottom:0}
+.tlc .grp.end::after{content:"";position:absolute;left:calc(-2.5*var(--u));bottom:0;width:calc(5*var(--u));height:calc(5*var(--u));border-right:1px solid rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.45);transform:rotate(45deg)}
+.tlc .row{display:grid;grid-template-columns:calc(118*var(--u)) calc(66*var(--u)) 1fr;align-items:center;min-height:calc(46*var(--u))}
+.tlc .m{text-align:right;padding-right:calc(18*var(--u));font-size:calc(19*var(--u));font-weight:700;line-height:1.2;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tlc .badge{height:calc(28*var(--u));width:calc(47*var(--u));justify-content:center;padding:0;font-size:calc(14*var(--u))}
+.tlc .tx{font-size:calc(18.5*var(--u));line-height:1.35}
+.tlc .tx small{font-size:calc(10.5*var(--u));color:#9c9ea0;margin-left:calc(5*var(--u))}
+
+/* 11. 문의 */
+.rule{height:1px;background:rgba(255,255,255,.22);margin-top:calc(42*var(--u))}
+.more{padding-top:calc(50*var(--u));padding-bottom:calc(70*var(--u))}
+.more .r{display:flex;align-items:center;justify-content:space-between;gap:calc(16*var(--u))}
+.more .r+.r{margin-top:calc(32*var(--u))}
+.more h3{font-size:calc(21*var(--u));font-weight:700;letter-spacing:-.025em}
+.more a{display:inline-flex;align-items:center;gap:calc(8*var(--u));height:calc(44*var(--u));padding:0 calc(14*var(--u)) 0 calc(14*var(--u));border-radius:calc(6*var(--u));background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.6);font-size:calc(19*var(--u));white-space:nowrap;transition:background .2s}
+.more a:hover{background:rgba(255,255,255,.38)}
+.more a img{width:calc(20*var(--u));height:calc(20*var(--u));border-radius:calc(4*var(--u))}
+
+/* 모바일: 가이드 비율 그대로 줄이고, 읽는 글자는 최소 크기를 지킨다 */
+@media (max-width:767px){
+  :root{--u:calc(100vw / 640)}
+  .col{padding-left:20px;padding-right:20px}
+  .ach .lead br{display:inline}
+  .hero .logo{left:20px}
+  .hero h1{left:20px;font-size:max(24px,calc(40*var(--u)));line-height:1.36;top:calc(78*var(--u))}
+  .hero .top{height:max(170px,calc(258*var(--u)))}
+  /* 휴대폰은 첫 줄 오른쪽에 자리가 없어 둘째 줄 끝에 붙인다 */
+  .hero h1 .l2t{position:relative}
+  .hero h1 .due{left:calc(100% + 10px);top:0;transform:none;width:60px;height:60px;font-size:11.5px}
+  .vid-ctl{right:10px;bottom:10px;gap:6px}
+  .vid-btn{height:32px;min-width:32px;padding:0 10px;border-radius:16px;font-size:12px}
+  .vid-btn svg{width:14px;height:14px}
+  .t32{font-size:max(22px,calc(32*var(--u)))}
+  .p20{font-size:15px;line-height:1.75}
+  .p20 br{display:none}
+  .h-sec{font-size:19px}
+  .faq .h-sec{font-size:20px}
+  .ico{width:22px;height:22px}
+  .chd,.cm h3,.nw h3,.fields h3,.cmm .chd{font-size:17px}
+  .cbody,.qt p,.fac p,.qa p,.rl li,.cmm p,.mem li{font-size:14px;line-height:1.75}
+  .badge{font-size:12.5px;height:24px;padding:0 8px}
+  .card{border-radius:10px}
+  .fac,.mem,.qa,.rl,.cmm,.nw,.qt,.mix{padding-left:20px;padding-right:20px}
+  .stories{column-gap:10px;row-gap:10px}
+  .cgrid{grid-template-columns:1fr}
+  .cm{padding:22px 20px}
+  .cm .lg{height:34px;margin-bottom:16px}
+  .cm .lg img{max-width:150px}
+  .cm .ty,.cm dl{font-size:12.5px}
+  .cm .sl{font-size:14px;line-height:1.6}
+  .mix ul{font-size:13px}
+  .stats,.now{grid-template-columns:1fr 1fr;gap:8px}
+  .stat{padding:16px 14px}
+  .stat b,.now .stat b{font-size:24px}
+  .stat span{font-size:12.5px}
+  .stat.wide{grid-column:span 2}
+  .ach .src{font-size:11px}
+  .chips{flex-direction:row;flex-wrap:wrap;gap:6px}
+  .chips div{display:contents}
+  .chips span{height:auto;min-height:30px;padding:6px 10px;font-size:12px;line-height:1.4;border-radius:7px;white-space:normal}
+  .qt{grid-template-columns:1fr}
+  .qt img{grid-row:auto;margin-bottom:16px}
+  .qt blockquote{font-size:17px}
+  .qt .who{font-size:12.5px}
+  .fields .tags span{height:30px;font-size:12.5px;padding:0 10px}
+  .cta p{font-size:17px;line-height:1.6}
+  .cta a{width:200px;height:48px;font-size:15px}
+  .where{font-size:13.5px}
+  .fac h3{font-size:16px}
+  .car-btn{width:32px;height:32px}
+  .car-btn.prev{left:8px}
+  .car-btn.next{right:8px}
+  .car-dots{gap:6px;margin-top:12px}
+  .car-dots button{width:6px;height:6px;border-radius:3px}
+  .car-dots button[aria-current="true"]{width:18px}
+  .steps{gap:4px}
+  .steps span{height:36px;padding:0 9px;font-size:12px;gap:4px}
+  .steps span i{width:12px;height:12px;font-size:7.5px;border-width:1px}
+  .steps svg{width:6px;height:11px}
+  .stage h4{font-size:15.5px}
+  .stage .ln{font-size:14px;flex-direction:column;gap:4px}
+  .stage .ln small{font-size:11px}
+  .stage .note{font-size:13.5px}
+  .mem .note{font-size:11px}
+  .proc .p20,.lounge .p20{font-size:15px;padding-left:0}
+  .qa h4{font-size:16px}
+  .tlc{padding:26px 18px 30px 14px}
+  .tlc h5{font-size:17px}
+  .tlc .row{grid-template-columns:88px 48px 1fr;min-height:38px}
+  .tlc-k{font-size:13px}
+  .tlc .m{font-size:13px;padding-right:10px;letter-spacing:-.02em}
+  .tlc .badge{width:38px;height:23px;font-size:11.5px}
+  .tlc .tx{font-size:14px}
+  .tlc .tx small{display:block;margin:2px 0 0;font-size:11px}
+  .more .r{flex-direction:column;align-items:flex-start;gap:12px}
+  .more h3{font-size:17px}
+  .more a{font-size:14px;height:38px}
+  .more a img{width:18px;height:18px}
+}
+/* 375px 이하 폰에서 진행 단계 4개가 한 줄에 들어가게 */
+@media (max-width:389px){
+  .steps{gap:2px}
+  .steps span{padding:0 5px;font-size:11px;gap:3px}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 첫 화면 -->
+<header class="hero">
+  <div class="col top">
+    <img class="logo" src="img/logo.png" alt="DESKER BASECAMP with nonce">
+    <h1>데스커 베이스캠프 with nonce<span class="l2"><span class="l2t"><u>27년 멤버</u>를 모집합니다.<span class="due">11월 18일<br> 신청 마감</span></span></span></h1>
+  </div>
+  <div class="photo">
+    <video id="heroVideo" src="video/basecamp_2027.mp4" poster="img/hero_video_poster.jpg" width="1280" height="720" autoplay muted loop playsinline preload="auto" aria-label="2027 데스커 베이스캠프 멤버 모집 영상"></video>
+    <div class="vid-ctl">
+      <button type="button" class="vid-btn" id="vidPlay" aria-label="영상 멈춤"></button>
+      <button type="button" class="vid-btn" id="vidSound" aria-label="소리 켜기"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1-1. 첫 화면 신청 버튼 -->
+<div class="col cta cta-top">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNr18D5WGiQthOK00XqpCDYUI9mK392XUglnfL8ZLvlr9oRg/viewform?usp=header" target="_blank" rel="noopener">27년 멤버 신청하기</a>
+</div>
+
+<!-- 2. 소개 -->
+<section class="col intro rv">
+  <h2 class="t32">‘성장’을 경험할 수 있는 공간,<br> 데스커 베이스캠프 with 논스</h2>
+  <div class="bar"></div>
+  <p class="p20"><span class="lead">8개 창업 커뮤니티가 함께하는 코워킹 스페이스</span><br>
+  성장을 브랜드 가치로 내세우는 가구 회사 데스커가<br>
+  nonce, SNUSV, Founders, Insiders, NEXT, 모두의연구소,<br> Rosota, 광인회관<br>
+  8개의 창업 커뮤니티 멤버들을 위해 만든 이 공간은<br>
+  창업가들이 모여 서로 교류하며 성장하는 공간입니다.</p>
+  <p class="p20">‘어떻게 하면 잘 성장할 수 있을까’<br>
+  고민하는 8개 창업 커뮤니티 소속 멤버라면,<br>
+  데스커 베이스캠프 with 논스의 멤버가 되어<br>
+  그 고민의 답을 함께 찾고, 나누고, 성장할 수 있습니다.</p>
+</section>
+
+<!-- 3. Step forward -->
+<section class="col step">
+  <h2 class="t32 rv">Step forward, Pay forward.</h2>
+  <div class="bar rv"></div>
+  <div class="stories">
+    <img class="rv" src="img/story1.jpg" alt="우리는 도전합니다 — 조건휘님의 이야기 (SNUSV)" loading="lazy">
+    <img class="rv" src="img/story2.jpg" alt="우리는 교류합니다 — 태현님의 이야기 (INSIDERS)" loading="lazy">
+    <img class="rv" src="img/story3.jpg" alt="우리는 함께합니다 — 김경빈님의 이야기 (NEXT)" loading="lazy">
+    <img class="rv" src="img/story4.jpg" alt="우리는 성공합니다 — 하경님의 이야기 (FOUNDERS)" loading="lazy">
+    <img class="rv" src="img/story5.jpg" alt="우리는 성장합니다 — 김승일님의 이야기 (모두의연구소)" loading="lazy">
+    <img class="rv" src="img/story6.jpg" alt="도전하세요! — 강영세님의 이야기 (nonce)" loading="lazy">
+  </div>
+  <div class="essay rv">
+    <p class="p20">꿈을 이루기 위해 각자만의 정상을 지향하는 창업가들이 모인 이곳,<br>
+    베이스캠프에서 멤버들은 <b>각자의 산을 오르는 등반가이자</b><br>
+    <b>동료의 여정을 함께 목격하고 짊어지는 셰르파</b>가 됩니다.</p>
+    <p class="p20">이곳에서는 성장의 궤적을 함께 이어가고, 이야기를 나눌 수 있습니다.<br>
+    누군가는 오늘의 실패를, 누군가는 다음 주의 도전을 말합니다.<br>
+    이곳에서는 성장을 비교하지 않습니다. 대신, ‘시도’의 힘을 믿습니다.</p>
+    <p class="p20">더불어 나아가고, 서로를 끌어올리며, 각자의 목표에 더 다가가는 곳.<br>
+    우리의 발자국은 또 다른 누군가의 지도가 될 것입니다.<br>
+    <b>베이스캠프는 시작의 족적을 함께 새기는 공간입니다.</b></p>
+  </div>
+</section>
+
+<!-- 4. 입주 커뮤니티 -->
+<section class="col comm" id="community">
+  <h2 class="t32 rv">베이스캠프 입주 커뮤니티</h2>
+  <div class="bar rv"></div>
+  <p class="p20 rv">국내 주요 대학·창업 네트워크 8곳이 행사 때만 모이는 게 아니라<br> 한 공간에 상주하며 매일 교류합니다.</p>
+  <div class="cgrid" id="cgrid"></div>
+  <article class="card mix rv">
+    <h3 class="chd">라운지 멤버 86명의 소속 커뮤니티 <span style="font-size:.7em;color:var(--muted);font-weight:500">2026년 9월 기준</span></h3>
+    <div class="stack" id="stack"></div>
+    <ul id="legend"></ul>
+  </article>
+</section>
+
+<!-- 5. 2025년 일어난 일들 -->
+<section class="col ach">
+  <h2 class="t32 rv">베이스캠프에서 일어난 일들</h2>
+  <div class="bar rv"></div>
+  <div class="stats rv">
+    <div class="card stat"><b>237<small>명</small></b><span>2025년 6개 커뮤니티<br> 멤버가 한 공간에서</span></div>
+    <div class="card stat"><b>107<small>회</small></b><span>해커톤·밍글링 파티 등<br> 커뮤니티 행사</span></div>
+    <div class="card stat"><b>60<small>%</small></b><span>초기 제품(MVP)을<br> 시장에 출시</span></div>
+    <div class="card stat"><b>50<small>%</small></b><span>창업 지원 프로그램<br> 합격</span></div>
+    <div class="card stat"><b>23.3<small>%</small></b><span>시드 투자 유치 또는<br> 후속 투자 논의</span></div>
+    <div class="card stat"><b>70<small>%</small></b><span>“든든한 동료를<br> 만났다”</span></div>
+  </div>
+  <p class="src rv">2025 데스커 베이스캠프 이용자 설문 기준<br>(26년도 사용자 설문 전이라 25년도 설문 내용이 포함되어 있습니다)</p>
+  <p class="p20 lead rv">베이스캠프 멤버들의 하루, 하루의 족적이 모여<br> <b>이러한 성과를 만들어냈습니다.</b></p>
+  <p class="yr rv">2026</p>
+  <div class="chips rv">
+    <div><span>sume, 실리콘밸리 Founders Inc 등 연속 투자 유치</span><span>로소타, 15억원 시드 투자 유치</span></div>
+    <div><span>뉴스보이, 티머니GO 뉴스 공급 계약 · 앱 유저 12만 명</span><span>오픈그래프, 미국 진출 · 8억 시드 투자 유치</span></div>
+    <div><span>새니닥, 국내 매출 전년 대비 8배 · 아마존US 런칭 후 매월 2배 성장</span></div>
+    <div><span>sesaa.me, 26년 매출 10배 성장</span><span>CREATOBI, 7월 런칭 3달 만에 매출 1억</span></div>
+    <div><span>우모(talkvalue), 미국 진출 · 첫 고객 계약 18개월 만에 77배 ($1.3K → $100K+)</span></div>
+  </div>
+  <p class="yr rv">2025</p>
+  <div class="chips rv">
+    <div><span>ABCDEdu, 싱가포르 수출 1.2억 · 예비창업패키지 1위</span><span>가방끈, 매출 500% 성장</span></div>
+    <div><span>아이젠, 누적 거래량 $410M · 인수 LoI 체결</span><span>다이버스, 투자 2건 유치</span></div>
+    <div><span>레비오사AI, TIPS 선정 · 시드 투자 유치</span><span>테르밋, 프리시드 투자 유치</span></div>
+    <div><span>피그말리온, 월 매출 2,000만원+ · MAU 1만+</span><span>오초, 연매출 1억 원 달성</span></div>
+    <div><span>리더스오브그린, 현대건설 서비스 도입 계약</span><span>10x Blitz, 매출 100% 성장</span></div>
+    <div><span>위엑스, 첫 매출 · BEP 달성</span><span>팀세일러스, BEP 달성 · 흑자 유지</span><span>빙글, BEP 달성 · 매출 증가</span></div>
+  </div>
+  <p class="src rv">2026: 데스커 베이스캠프 입주사 성과 · 2025: 2025 데스커 베이스캠프 성과 보고서</p>
+  <div class="dots"><i></i><i></i><i></i></div>
+</section>
+
+<!-- 6. 1년의 기록 -->
+<section class="col rec">
+  <h2 class="t32 rv">혼자였다면 버티지 못했을<br> 1년의 기록</h2>
+  <div class="bar rv"></div>
+  <p class="p20 rv">창업자에게 진짜 필요한 건 투자금도, 사무실도 아니었습니다.<br>
+  진심으로 내 고충을 이해해주는 동료,<br>
+  내 옆에서 다른 길을 걷는 또 다른 창업자의 한마디였습니다.</p>
+  <div class="quotes">
+    <article class="card qt rv">
+      <img src="img/rec3.jpg" alt="베이스캠프 밍글링 파티" loading="lazy">
+      <blockquote>“너무 좋은, 이상적인 업무 공간.”</blockquote>
+      <p>세 달 동안 만든 랜딩페이지만 수십 개. 매일 베이스캠프로 출근하며 제품을 찾던 위엑스팀은 이 공간에서 ‘알파컷’을 만들었습니다. 첫 매출은 단돈 5만원이었고, 26년 3월에는 월매출 6천만원을 바라보게 됐습니다.</p>
+      <span class="who">위엑스 윤정락 대표</span>
+    </article>
+    <article class="card qt rv">
+      <img src="img/rec4.jpg" alt="라운지에서 일하는 멤버들" loading="lazy">
+      <blockquote>“비슷한 고민을 하는 사람들과 만나,<br> 인사이트를 얻을 수 있는 곳.”</blockquote>
+      <p>아무것도 없이 들어와 혼자 제품을 준비하던 1인 창업가는 정부지원사업 선정을 시작으로 제품을 런칭해 스스로를 증명했습니다. 라운지에서 만난 소비재 브랜드 창업가의 조언과 스몰톡 속에서 자신만의 루틴을 찾았습니다.</p>
+      <span class="who">데디투스 김완성 대표</span>
+    </article>
+    <article class="card qt rv">
+      <img src="img/rec5.jpg" alt="베이스캠프 커뮤니티 행사" loading="lazy">
+      <blockquote>“비슷한 스테이지에 있는 동료들을 만나고,<br> 자유롭게 소통할 수 있는 공간이 생겨서 너무 좋았습니다.”</blockquote>
+      <p>기술창업 공모전 우수팀으로 선정돼 네이버 D2SF 사무실 지원을 받을 수 있었지만, 고충을 이해해주는 친구들을 만난 베이스캠프에 남기로 했습니다.</p>
+      <span class="who">SNUSV 리더 최호승님</span>
+    </article>
+  </div>
+</section>
+
+<!-- 7. 2026 소식 -->
+<section class="col news">
+  <h2 class="t32 rv">2026년 9월, 베이스캠프의 지금</h2>
+  <div class="bar rv"></div>
+  <div class="now rv" style="margin-top:0">
+    <div class="card stat"><b>138<small>명</small></b><span>상주 멤버<br> 고정석 52 · 라운지 86</span></div>
+    <div class="card stat"><b>1,449<small>명</small></b><span>9월 한 달<br> 방문객</span></div>
+    <div class="card stat"><b>19<small>회</small></b><span>9월 커뮤니티<br> 창업 행사</span></div>
+  </div>
+  <p class="src rv" style="font-size:calc(12*var(--u));color:#8b8d8f;margin-top:calc(12*var(--u));text-align:right">2026년 9월 월간 보고 기준</p>
+  <div class="fields rv">
+    <h3>지금 입주한 27개 팀의 분야</h3>
+    <div class="tags">
+      <span>AI 마케팅·업무 자동화<em>CREATOBI · SESAA.ME · Mirra 외 2팀</em></span>
+      <span>이커머스·소비재 브랜드<em>SANIDOC · 데디투스 · L.hour 외 1팀</em></span>
+      <span>AI 미디어·크리에이터<em>커브길에서 · FODI 외 1팀</em></span>
+      <span>헬스케어·웰니스<em>Grio</em></span>
+      <span>게임<em>뉴민스 외 1팀</em></span>
+      <span>글로벌 서비스<em>Umoh</em></span>
+      <span>ODA 분야 컨설팅<em>팀세일러스</em></span>
+      <span>교육<em>Senior Future · 아르그 소프트 · Sarada</em></span>
+      <span>웹3·디파이<em>아이젠</em></span>
+      <span>바이오 AI<em>균류 DNA 파운데이션 모델</em></span>
+      <span>창업 아이템 탐색<em>3팀</em></span>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 신청 -->
+<section class="col cta rv">
+  <p>함께 시도하며 성장하고 싶은 창업 커뮤니티 멤버라면<br> 27년 베이스캠프에서 새롭게 시작해보세요.</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeNr18D5WGiQthOK00XqpCDYUI9mK392XUglnfL8ZLvlr9oRg/viewform?usp=header" target="_blank" rel="noopener">27년 멤버 신청하기</a>
+</section>
+
+<!-- 9. 자세히 보기 -->
+<section class="col detail">
+  <h2 class="t32 rv">데스커 베이스캠프 with nonce 자세히 보기</h2>
+  <h3 class="h-sec rv"><img class="ico" src="img/ic_pin.png" alt="">위치</h3>
+  <img class="map rv" src="img/map.jpg" alt="데스커 베이스캠프 위치 — 서울대입구역 2번 출구에서 관악구청 방향" loading="lazy">
+  <p class="card where rv">데스커 베이스캠프 with 논스는 서울대입구역 2번 출구 7분 거리에 위치해있습니다.</p>
+
+  <h3 class="h-sec rv" style="margin-top:calc(80*var(--u))"><img class="ico" src="img/ic_house.png" alt="">시설</h3>
+  <article class="card fac rv">
+    <h3>LOUNGE</h3>
+    <div class="car"><div class="car-track"><img src="img/hero.jpg" alt="라운지 전경" loading="lazy"><img src="img/lounge1.jpg" alt="라운지 소파 공간" loading="lazy"><img src="img/lounge2.jpg" alt="라운지 긴 테이블" loading="lazy"><img src="img/lounge3.jpg" alt="라운지 커뮤니티 행사" loading="lazy"></div></div>
+    <p>라운지에는 간단한 음식을 나눠먹거나 휴식을 취할 수 있는 공용 공간과 일어서서 작업할 수 있는 바 테이블, 앉아서 작업 가능한 긴 테이블 책상이 있습니다. 전면엔 대형 스크린이 존재하며, 세미나, 피칭 등 커뮤니티 행사도 진행됩니다.</p>
+  </article>
+  <article class="card fac rv">
+    <h3>MEETING ROOM</h3>
+    <div class="car"><div class="car-track"><img src="img/meeting1.jpg" alt="회의실 1" loading="lazy"><img src="img/meeting2.jpg" alt="회의실 2" loading="lazy"><img src="img/meeting3.jpg" alt="회의실 3" loading="lazy"></div></div>
+    <p>회의실은 총 3곳입니다. 회의실 1은 베이스캠프 전면에 위치한 10인용 회의실로, 화상 미팅이 가능한 장비와 데스크탑이 구비되어 있습니다. 회의실 2, 3은 최대 4인이 사용 가능하며, HDMI선과 모니터가 준비되어 있습니다.</p>
+  </article>
+  <article class="card fac rv">
+    <h3>WORK STATION</h3>
+    <div class="car"><div class="car-track"><img src="img/work1.jpg" alt="고정석" loading="lazy"><img src="img/work2.jpg" alt="워크 스테이션 전경" loading="lazy"><img src="img/work3.jpg" alt="포커스 룸" loading="lazy"></div></div>
+    <p>WORK STATION에 존재하는 총 52석의 고정 좌석은 업무에 집중하기 위한 최적의 의자와 가구, 소형 파티션으로 구성되어 있습니다.<br> 이 외에는 2인 규모로 집중 회의가 가능한 포커스 룸 2곳, 통화 혹은 화상 미팅을 위한 1인 폰부스, 옷과 짐을 보관 가능한 보관 구역이 존재합니다.</p>
+  </article>
+</section>
+
+<!-- 10. 합류 안내 -->
+<section class="col join" id="join">
+  <h2 class="t32 rv">데스커 베이스캠프 with 논스<br> 27년 멤버 합류 안내</h2>
+  <div class="bar rv"></div>
+  <p class="p20 rv">27년 데스커 베이스캠프 멤버는 8개 창업 커뮤니티 소속 멤버가<br> 개별적으로 자유롭게 지원 가능한 고정석 멤버와<br> 커뮤니티 리더의 추천을 받아 등록되는 라운지 멤버로 구성됩니다.</p>
+  <article class="card mem rv">
+    <h3 class="chd">고정석 멤버 (월 150,000원)</h3>
+    <span class="badge">52명 모집, 개별 지원</span>
+    <ul><li>고정석(52석) 이용 가능 (팀당 최대 좌석 수 4석)</li><li>회의실, 복합기 등 부대 시설 이용 가능</li><li>세무, 법률 자문 연계 지원</li></ul>
+    <p class="note">*좌석은 배정제로 운영되며, 사업장소재지 등록은 불가능합니다.</p>
+  </article>
+  <article class="card mem rv">
+    <h3 class="chd">라운지 멤버 (무료)</h3>
+    <span class="badge">50명 모집, 커뮤니티 리더 추천</span>
+    <ul><li>고정석 및 회의실을 제외한 라운지 공간 이용 가능</li><li>회의실, 복합기 등 부대 시설 이용 불가능 (라운지 대관 행사는 참여 가능)</li></ul>
+  </article>
+</section>
+
+<section class="col proc">
+  <h3 class="h-sec rv"><img class="ico" src="img/ic_raise.png" alt="">고정석 멤버 입주 지원 절차</h3>
+  <p class="p20 rv">27년 고정석 신청 멤버 개개인의 상황과 여건을 확인하고,<br> 지원 방향에 참고하기 위해 모든 신청자를 대상으로<br> 인터뷰를 진행하고 있습니다. 지원이 필요하신 분부터 우선 선발됩니다.</p>
+  <div class="steps rv">
+    <span><i>1</i>입주 신청</span><svg viewBox="0 0 9 16" fill="none" stroke="#bbb" stroke-width="1.2"><path d="M1 1l7 7-7 7"/></svg>
+    <span><i>2</i>서류 심사</span><svg viewBox="0 0 9 16" fill="none" stroke="#bbb" stroke-width="1.2"><path d="M1 1l7 7-7 7"/></svg>
+    <span><i>3</i>인터뷰 심사</span><svg viewBox="0 0 9 16" fill="none" stroke="#bbb" stroke-width="1.2"><path d="M1 1l7 7-7 7"/></svg>
+    <span><i>4</i>입주</span>
+  </div>
+  <div class="stage rv"><h4>입주 지원</h4><div class="ln"><span>입주 지원 :&nbsp; 2026.11.04(수) ~ 2026.11.18(수) 자정까지</span></div><p class="note">서류는 접수 순서대로 심사하며, 비슷한 조건이라면 <b>먼저 지원한 분을 우선 선정</b>합니다.</p></div>
+  <div class="stage rv"><h4>서류 심사</h4><div class="ln"><span>서류 심사 :&nbsp; 2026.11.19(목) ~ 2026.11.23(월)</span></div><div class="ln"><span>서류 발표일 :&nbsp; 2026.11.24(화) 오후 6시</span><small>* 결과 안내는 이메일로 진행됩니다.</small></div></div>
+  <div class="stage rv"><h4>인터뷰 심사</h4><div class="ln"><span>인터뷰 심사 기간 :&nbsp; 2026.11.30(월) ~ 2026.12.11(금)</span></div><div class="ln"><span>최종 합격 발표 :&nbsp; 2026.12.14(월) 오후 6시</span></div></div>
+  <div class="stage rv"><h4>입주 시작</h4><div class="ln"><span>2027.01.04(월) ~ 2027.01.22(금) 내 입주</span></div><div class="ln last"><span>OT &amp; 반상회 :&nbsp; 2027.01.26(화)</span></div></div>
+</section>
+
+<section class="col lounge">
+  <h3 class="h-sec rv"><img class="ico" src="img/ic_pair.png" alt="">라운지 멤버 등록 지원 절차</h3>
+  <p class="p20 rv">라운지 멤버는 각 커뮤니티 리더와 협의 하에 등록됩니다.<br> 11월중 커뮤니티별로 신청 안내가 진행될 예정입니다.</p>
+</section>
+
+<section class="col faq">
+  <h3 class="h-sec rv"><img class="ico" src="img/ic_search.png" alt="">FAQ</h3>
+  <div class="car car-faq rv" data-name="FAQ"><div class="car-track">
+  <article class="card qa"><h4>입주는 언제부터 가능한가요?</h4><p>입주는 2027년 1월 4일부터 1월 22일까지 약 3주간 진행될 예정입니다.<br> 지문 등록 및 커뮤니티 이용에 관한 온보딩을 위해 1월 26일(화) OT &amp; 반상회에 꼭 참여해주세요!</p></article>
+  <article class="card qa"><h4>주차가 가능한가요?</h4><p>고정석 사용자 및 초청 연사 한정 한시간 무료주차권 발급해 드립니다.</p></article>
+  <article class="card qa"><h4>8개 커뮤니티 멤버만 들어갈 수 있나요?</h4><p>네, 맞습니다. 8개 커뮤니티 기존 멤버가 아니신 경우 지원하실 수 없습니다.</p></article>
+  <article class="card qa"><h4>모집 기간이 지나도 지원할 수 있나요?</h4><p>퇴실자가 생기면 상시로 지원을 받고 있습니다. 카톡 채널로 문의해 주세요.</p></article>
+  </div></div>
+</section>
+
+<section class="col rules">
+  <h3 class="h-sec rv"><img class="ico" src="img/ic_hands.png" alt="">함께 지키는 약속</h3>
+  <p class="p20 rv">라운지에서는 교류하고, 좌석에서는 집중합니다.<br> 규칙은 매월 반상회에서 함께 고쳐 나갑니다.</p>
+  <article class="card rl rv">
+    <h4 class="chd">공간 사용</h4>
+    <ol>
+      <li>공간을 깨끗이 쓰고, 쓰레기는 꼭 분리수거합니다.</li>
+      <li>청소는 일주일에 3회 진행됩니다. 중요한 물건은 잘 챙겨 주세요.</li>
+      <li>회의실·라운지는 예약 후 쓰고, 쓴 뒤에는 정리합니다. 정식 멤버 외 대관은 금지합니다.</li>
+      <li>식사는 라운지에서만 합니다. 음식물 쓰레기는 버릴 수 없으니 남기지 않을 때만 가능합니다.</li>
+      <li>반려동물은 데려오지 않습니다.</li>
+      <li>쓰지 않는 가전·조명·냉난방은 전원을 끕니다.</li>
+      <li>밤늦게 큰 소리를 내지 않고, 음주는 금지합니다.</li>
+      <li>온라인 미팅은 반드시 회의실에서 합니다.</li>
+    </ol>
+  </article>
+  <article class="card rl rv">
+    <h4 class="chd">관계 문화</h4>
+    <ol>
+      <li>조용한 코워킹이 아니라 서로 인사하는 문화가 기본입니다.</li>
+      <li>불편한 행동에 개선을 요청할 때는 ‘인간적으로 존중하지만 아닌 것은 아니다’라고 정중히 말합니다.</li>
+      <li>서로에게 관심을 갖고 친절하되, 상대가 불편해하면 더 다가가지 않습니다.</li>
+    </ol>
+  </article>
+</section>
+
+<section class="col jr">
+  <h3 class="h-sec rv"><img class="ico" src="img/ic_climb.png" alt="">입주 후 여정</h3>
+  <p class="p20 rv">27년도 26년과 같은 1년의 시스템으로 운영합니다.<br> <b>1년 동안 이어지는 베이스캠프 프로그램</b>을 통해<br> 입주자들은 서로를 알아가고, 배우고, 협업하며<br> 창업가로서의 여정을 함께 만들어나갑니다.</p>
+  <article class="card cmm rv">
+    <h4 class="chd">Community Motivation Module</h4>
+    <p>데스커 베이스캠프에 작동되는 Community Motivation Module은<br> 논스가 커뮤니티를 위해 <b>독자적으로 디자인한 성장 관리 시스템</b>입니다.</p>
+    <p>이 모듈을 기반으로 베이스캠프에서는 매주 목표 달성 여부를 공유하고,<br> 매월 회고 및 방향성을 재정립하는 반상회가 이루어집니다.</p>
+    <p>이렇게 주간과 월간의 리듬이 유기적으로 이어지며 구조화된 1년의 과정으로<br> 베이스캠프 멤버는 체계적인 성장 관리 루틴을 자연스럽게 체득하게 됩니다.</p>
+    <p class="sm">*반상회 — 매월 1회 모든 멤버가 저녁에 모여 근황을 나누고, 공간에 대한 건의와 유익한 지식을 나누는 논스만의 문화입니다.</p>
+  </article>
+  <article class="card tlc rv">
+    <p class="tlc-k">2027 운영 일정</p>
+    <h5>Onboarding Stage</h5>
+    <div class="grp">
+      <div class="row"><span class="m">1월</span><span class="badge">필수</span><span class="tx">OT &amp; 반상회</span></div>
+    </div>
+    <h5>Belonging Stage</h5>
+    <div class="grp">
+      <div class="row"><span class="m">2–12월</span><span class="badge">필수</span><span class="tx">베이스캠프 반상회<small>매월</small></span></div>
+      <div class="row"><span class="m">2–12월</span><span class="badge w">자율</span><span class="tx">소속 커뮤니티 행사</span></div>
+      <div class="row"><span class="m">3월</span><span></span><span class="tx">커뮤니티데이</span></div>
+      <div class="row"><span class="m">6월</span><span class="badge">필수</span><span class="tx">도전 보고회</span></div>
+      <div class="row"><span class="m">2·5·9·11월</span><span></span><span class="tx">커뮤니티 리더 반상회</span></div>
+    </div>
+    <h5>Offboarding Stage</h5>
+    <div class="grp end">
+      <div class="row"><span class="m">12월</span><span class="badge">필수</span><span class="tx">Demo Day</span></div>
+      <div class="row"><span class="m">12월</span><span class="badge">필수</span><span class="tx">송별회</span></div>
+      <div class="row"><span class="m">12월</span><span></span><span class="tx">회고 인터뷰</span></div>
+    </div>
+  </article>
+</section>
+
+<!-- 11. 문의 -->
+<div class="rule"></div>
+<section class="col more rv">
+  <div class="r"><h3>더 궁금하신 점이 있으신가요?</h3><a href="https://pf.kakao.com/_vQydn" target="_blank" rel="noopener"><img src="img/ic_kakao.png" alt="">카톡 채널 문의하기</a></div>
+  <div class="r"><h3>베이스캠프의 이야기가 더 궁금하다면?</h3><a href="https://www.instagram.com/desker_basecamp/" target="_blank" rel="noopener"><img src="img/ic_insta2.png" alt="">인스타그램</a></div>
+</section>
+</main>
+
+<script>
+// 입주 커뮤니티 — 문구는 여기서만 고치면 된다
+const COMMS=[
+  {n:'SNUSV',lg:'snusv',h:26,ty:'서울대학교 학생벤처네트워크 · 학생 창업 동아리',sl:'MAKE NETWORK, BUILD FUTURE',d:[['소속','서울대 단독'],['설립','1996년 · 국내 최초·최장수 창업 동아리'],['규모','기수당 20~50명 · 누적 알럼나이 약 850명'],['배출','컴투스, 하이퍼커넥트, 오늘의집, 콴다 등 약 70개 기업']]},
+  {n:'Insiders',lg:'insiders',h:22,ty:'연세대·고려대 연합 실전 창업 학회',sl:'Dare to be Different',d:[['소속','연세대 + 고려대 (2개교 연합)'],['설립','2011년'],['규모','기수당 20명 중반 · 학회원 약 400명'],['배출','라이너, 111%, 멋쟁이사자처럼 등 50~60개 기업']]},
+  {n:'NEXT',lg:'next',h:28,ty:'고려대 소프트웨어 창업 학회',sl:'ACCELERATE YOUR POTENTIAL',d:[['소속','고려대 단독'],['설립','2013년'],['규모','기수당 20여 명'],['활동','개발 세션 → MVP 제작 → 시장 검증']]},
+  {n:'Founders',lg:'founders',h:46,ty:'서연고카포 젊은 창업자 연합 네트워크',sl:'Where We Become Family',d:[['소속','서울대·연세대·고려대·KAIST·POSTECH'],['설립','2022년 · 2026년 9기'],['규모','기수당 30~35명'],['활동','멘토 네트워킹 · 연사 강연 · FOUNDERS Story']]},
+  {n:'모두의연구소',lg:'modulabs',h:40,ty:'개방형 AI·SW 연구 커뮤니티',sl:'Share Value, Grow Together',d:[['소속','소속 대학 없음'],['설립','2015년'],['규모','랩·풀잎스쿨 사용자 약 7,000명'],['성과','2017~2024년 학회 논문 60편 채택']]},
+  {n:'nonce',lg:'nonce',h:28,ty:'코리빙·코워킹 창업 커뮤니티',sl:'미래 혁명가들의 베이스캠프',d:[['소속','소속 대학 없음'],['설립','2018년'],['규모','알럼나이 850명 이상'],['성과','커뮤니티에서 탄생한 프로젝트 85개 이상']]},
+  {n:'광인회관',lg:'gwangin',h:46,ty:'창업가 코리빙 · 狂人 = 창업에 미친 사람',sl:'세상을 바꿀 수 있다고 믿는 형제들의 회관',d:[['소속','소속 대학 없음'],['설립','2019년'],['규모','거주 8명 + 비거주 26명'],['리더','김진우 (라이너 대표)']]},
+  {n:'Rosota',lg:'rosota',h:28,ty:'서울대병원 MediSC 스핀오프 · 의료 AI 로보틱스',sl:'Expertise for Everyone, with Robotics SOTA model',d:[['소속','서울대 의대 + 기계공학부'],['설립','2025~26년'],['규모','팀원 10명 내외'],['성과','2026년 15억원 시드 투자 유치']]},
+];
+document.getElementById('cgrid').innerHTML=COMMS.map(c=>`
+<article class="card cm rv">
+  <div class="lg"><img src="img/lg_${c.lg}.png" alt="${c.n}" style="--h:calc(${c.h}*var(--u))" loading="lazy"></div>
+  <h3>${c.n}</h3><p class="ty">${c.ty}</p>
+  <p class="sl">“${c.sl}”</p>
+  <dl>${c.d.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>
+</article>`).join('');
+
+// 라운지 멤버 구성 비율
+const MIX=[['SNUSV',22.1],['nonce',22.1],['NEXT',17.4],['Founders',16.3],['모두의연구소',5.8],['Insiders',5.8],['Rosota',5.8],['광인회관',4.7]];
+const SHADE=['#093dec','#3a64f0','#6a8bf4','#97aff7','#c3d1fb','#e2e9fd','#8e9093','#5d5f62'];
+document.getElementById('stack').innerHTML=MIX.map(([n,p],i)=>`<i style="flex:${p};background:${SHADE[i]}" title="${n} ${p}%"></i>`).join('');
+document.getElementById('legend').innerHTML=MIX.map(([n,p],i)=>`<li><i style="background:${SHADE[i]}"></i>${n}<em>${p}%</em></li>`).join('');
+
+// 캐러셀(시설 사진·FAQ) — 화살표와 점은 스크립트로 붙인다. FAQ는 화살표를 카드 아래 점 양옆에 둔다
+document.querySelectorAll('.car').forEach(car=>{
+  const track=car.querySelector('.car-track'), slides=[...track.children], faq=car.classList.contains('car-faq');
+  const name=car.dataset.name||car.closest('.fac').querySelector('h3').textContent, unit=faq?'질문':'사진';
+  track.tabIndex=0;track.setAttribute('aria-label',`${name} ${unit}, 좌우 화살표로 넘기기`);
+  const btn=(cls,label,d)=>{const b=document.createElement('button');b.type='button';b.className='car-btn '+cls;b.setAttribute('aria-label',label);b.innerHTML=`<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;return b};
+  const prev=btn('prev',`이전 ${unit}`,'M10 3 5 8l5 5'), next=btn('next',`다음 ${unit}`,'M6 3l5 5-5 5');
+  const dots=document.createElement('div');dots.className='car-dots';
+  dots.innerHTML=slides.map((_,i)=>`<button type="button" aria-label="${name} ${unit} ${i+1}/${slides.length}"></button>`).join('');
+  if(faq){const bar=document.createElement('div');bar.className='car-bar';bar.append(prev,dots,next);car.append(bar)}
+  else{car.append(prev,next);car.after(dots)}
+  const max=()=>track.scrollWidth-track.clientWidth;
+  const go=i=>{i=Math.max(0,Math.min(slides.length-1,i));track.scrollTo({left:Math.min(slides[i].offsetLeft,max()),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})};
+  const cur=()=>{if(track.scrollLeft>=max()-2)return slides.length-1;let b=0;slides.forEach((s,k)=>{if(Math.abs(s.offsetLeft-track.scrollLeft)<Math.abs(slides[b].offsetLeft-track.scrollLeft))b=k});return b};
+  const sync=()=>{const i=cur();prev.disabled=i<=0;next.disabled=i>=slides.length-1;[...dots.children].forEach((d,k)=>d.setAttribute('aria-current',k===i))};
+  prev.onclick=()=>go(cur()-1);next.onclick=()=>go(cur()+1);
+  [...dots.children].forEach((d,k)=>d.onclick=()=>go(k));
+  track.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();go(cur()-1)}if(e.key==='ArrowRight'){e.preventDefault();go(cur()+1)}});
+  track.addEventListener('scroll',sync,{passive:true});addEventListener('resize',sync);sync();
+});
+
+// 첫 화면 영상 — 움직임 줄이기 설정이면 자동 재생하지 않는다. 처음 소리를 켜면 처음부터 다시 튼다
+(()=>{
+  const v=document.getElementById('heroVideo'), pb=document.getElementById('vidPlay'), sb=document.getElementById('vidSound');
+  if(!v)return;
+  const svg=d=>`<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const I={pause:svg('<path d="M5.5 3.5v9M10.5 3.5v9"/>'),play:svg('<path d="M5 3.2l8 4.8-8 4.8z" fill="currentColor"/>'),
+    off:svg('<path d="M2.5 6h2.5l3.5-3v10L5 10H2.5z"/><path d="M11 6l3.5 4M14.5 6L11 10"/>'),on:svg('<path d="M2.5 6h2.5l3.5-3v10L5 10H2.5z"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.8a6 6 0 0 1 0 8.4"/>')};
+  let heard=false;
+  const sync=()=>{pb.innerHTML=v.paused?I.play:I.pause;pb.setAttribute('aria-label',v.paused?'영상 재생':'영상 멈춤');
+    sb.innerHTML=(v.muted?I.off:I.on)+(v.muted?'소리 켜기':'소리 끄기');sb.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기')};
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){v.removeAttribute('autoplay');v.pause()}
+  pb.onclick=()=>{v.paused?v.play():v.pause()};
+  sb.onclick=()=>{v.muted=!v.muted;if(!v.muted&&!heard){heard=true;v.currentTime=0}if(!v.muted&&v.paused)v.play();sync()};
+  ['play','pause','volumechange'].forEach(e=>v.addEventListener(e,sync));sync();
+})();
+
+// 스크롤 등장 — 첫 화면 아래에 있는 것만 숨겼다가 나타나게 한다
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}});
+</script>
+</body>
+</html>

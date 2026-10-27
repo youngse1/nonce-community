@@ -19,6 +19,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 | `js/main.js` | 히어로 헥스 덤프 생성, nonce 카운터, 모바일 메뉴 |
 | `js/apply.js` | 지원서 검증과 제출 |
 | `herotopia/` | 헤테로토피아 창업가 하우스 2027 입주자 모집 페이지(nonce.community/herotopia/). 따로 받은 완성본을 그대로 올린 독립 페이지라 사이트 공통 CSS·JS를 쓰지 않는다. 상대 경로를 쓰므로 `vercel.json`이 `/herotopia`를 `/herotopia/`로 넘긴다 |
+| `basecamp/` | 데스커 베이스캠프 with nonce 27년 멤버 모집 페이지(nonce.community/basecamp/). `herotopia/`와 같은 방식의 독립 페이지 |
 | `apply-receiver.gs` | 지원서 → Google 스프레드시트 수신용 Apps Script (사이트에서는 쓰지 않음) |
 | `img/` | 이미지. 건물 일러스트는 WebP, 사진은 1600px 이하 JPG |
 

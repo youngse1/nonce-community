@@ -1,5 +1,14 @@
 {
   "redirects": [
-    { "source": "/herotopia", "destination": "/herotopia/", "permanent": true }
+    {
+      "source": "/herotopia",
+      "destination": "/herotopia/",
+      "permanent": true
+    },
+    {
+      "source": "/basecamp",
+      "destination": "/basecamp/",
+      "permanent": true
+    }
   ]
 }
