@@ -49,7 +49,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 
 ## 남은 일
 - [ ] 지원서 `data-endpoint`에 Apps Script 웹 앱 주소 연결
-- [ ] Vercel에서 nonce.community 도메인 소유 확인(TXT `_vercel`) 및 DNS 연결
+- [x] Vercel에서 nonce.community 도메인 소유 확인(TXT `_vercel`) 및 DNS 연결 — DNS는 후이즈 기본 네임서버에서 관리, www는 nonce.community로 308 리디렉트
 
 ## 작업 방식
 - 큰 변경은 브랜치에서 하고 푸시하면 Vercel이 미리보기 주소를 만든다. 확인 후 `main`에 합친다.
