@@ -43,8 +43,9 @@ python3 -m http.server 8000     # → http://localhost:8000
 
 ## 지원서
 - 제출 주소는 `apply.html`의 `<form id="apply" data-endpoint="">`. Apps Script 웹 앱 주소(…/exec)를 넣으면 「논스 베이스캠프 입주 지원서 응답」 스프레드시트에 쌓인다.
-- 보내는 필드 이름(`space, when, name, email, phone, work, referrer, relation, mission, challenge, share, links, agree, website`)은 `apply-receiver.gs`와 맞아야 한다. `website`는 스팸 방지용 숨은 칸.
+- 보내는 필드 이름(`space, when, name, birth, email, phone, work, referrer, relation, life, mission, talent, share, links, agree, website`)은 `apply-receiver.gs`와 맞아야 한다. `website`는 스팸 방지용 숨은 칸.
 - 개인정보 문구: 지원일로부터 3년 보관 후 파기.
+- 접수 확인은 메일로만 한다: Apps Script가 지원자에게 확인 메일(접수 번호 포함)을 보낸다. 지원서 페이지에는 확인 화면이 없고, 제출 버튼 위에 한 줄 안내만 뜬다.
 
 ## 남은 일
 - [ ] 지원서 `data-endpoint`에 Apps Script 웹 앱 주소 연결

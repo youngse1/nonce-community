@@ -12,13 +12,16 @@
  *    이 주소가 홈페이지 지원서의 제출 주소가 됩니다.
  *
  * (선택) NOTIFY_EMAIL 에 주소를 넣으면 새 지원서가 들어올 때마다 메일로 알림을 받습니다.
+ * 지원자에게는 접수 확인 메일이 자동으로 나갑니다(CONFIRM_APPLICANT). 홈페이지에는 접수 확인 화면이 없습니다.
  */
 
 const SHEET_NAME = '응답';
 const NOTIFY_EMAIL = 'hello@nonce.community';   // 알림이 필요 없으면 '' 로 두세요.
+const CONFIRM_APPLICANT = true;                 // 지원자에게 접수 확인 메일 보내기
+const REPLY_TO = 'hello@nonce.community';       // 지원자가 답장하면 받을 주소
 
 const SPACE_LABEL = { coliving: '코리빙 (헤테로토피아 — 창업가하우스)', coworking: '코워킹 (베이스캠프 — 고정석 · 자율석)' };
-const REQUIRED = ['space', 'name', 'email', 'phone', 'work', 'mission', 'challenge', 'share', 'agree'];
+const REQUIRED = ['space', 'name', 'birth', 'email', 'phone', 'work', 'life', 'mission', 'talent', 'share', 'agree'];
 const LIMIT = 5000;   // 한 칸에 저장할 최대 글자 수
 
 function doPost(e) {
@@ -44,9 +47,9 @@ function doPost(e) {
     const sheet = SpreadsheetApp.getActive().getSheetByName(SHEET_NAME);
     sheet.appendRow([
       now, receipt, SPACE_LABEL[d.space] || clean(d.space), clean(d.when),
-      clean(d.name), clean(d.email), "'" + clean(d.phone), clean(d.work),
+      clean(d.name), clean(d.birth), clean(d.email), "'" + clean(d.phone), clean(d.work),
       clean(d.referrer), clean(d.relation),
-      clean(d.mission), clean(d.challenge), clean(d.share), clean(d.links),
+      clean(d.life), clean(d.mission), clean(d.talent), clean(d.share), clean(d.links),
       '동의', '검토 대기', ''
     ]);
 
@@ -55,6 +58,25 @@ function doPost(e) {
         '[논스] 새 입주 지원서 — ' + clean(d.name),
         clean(d.name) + '님이 ' + (SPACE_LABEL[d.space] || '') + ' 입주를 지원했습니다.\n추천인: ' + (clean(d.referrer) || '없음') +
         '\n\n스프레드시트: ' + SpreadsheetApp.getActive().getUrl());
+    }
+    if (CONFIRM_APPLICANT && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(d.email))) {
+      try {
+        MailApp.sendEmail({
+          to: clean(d.email),
+          replyTo: REPLY_TO,
+          name: 'nonce community',
+          subject: '[논스] 베이스캠프 입주 지원서가 접수되었습니다',
+          body: clean(d.name) + '님, 논스 베이스캠프에 지원해 주셔서 고맙습니다.\n\n' +
+            '지원 공간: ' + (SPACE_LABEL[d.space] || clean(d.space)) + '\n' +
+            '접수 번호: ' + receipt + '\n\n' +
+            '검토를 거쳐 입력하신 연락처로 인터뷰 일정을 안내드리겠습니다.\n' +
+            '궁금한 점은 이 메일에 답장하거나 hello@nonce.community로 보내 주세요.\n\n' +
+            'nonce community'
+        });
+      } catch (mailErr) {
+        // 메일이 실패해도 지원서는 이미 시트에 저장되었으므로 접수는 성공으로 처리한다.
+        console.error(mailErr);
+      }
     }
     return json({ ok: true, receipt: receipt });
   } catch (err) {

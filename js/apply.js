@@ -6,19 +6,30 @@
   if (!form) return;
   var err = document.getElementById('err');
   var btn = document.getElementById('submit');
-  var done = document.getElementById('done');
+  var ok = document.getElementById('ok');
   var spaces = document.getElementById('spaces');
   var LABELS = {
-    space: '지원 공간', name: '이름', email: '이메일', phone: '연락처', work: '지금 하는 일',
-    mission: '문제와 사명', challenge: '도전 경험', share: '나눌 것과 얻을 것', agree: '개인정보 동의'
+    space: '지원 공간', name: '이름', birth: '생년월일', email: '이메일', phone: '연락처', work: '지금 하는 일',
+    life: '살아온 이야기', mission: '문제와 사명', talent: '자신만의 재능', share: '나눌 것과 얻을 것', agree: '개인정보 동의'
   };
   var REQUIRED = Object.keys(LABELS);
   var tried = false;
+
+  // birthdate is typed by hand: accept 19950302, 1995.3.2, 1995-03-02 … and send YYYY-MM-DD
+  function normBirth(v) {
+    var p = String(v || '').split(/\D+/).filter(Boolean);
+    if (p.length === 1 && p[0].length === 8) p = [p[0].slice(0, 4), p[0].slice(4, 6), p[0].slice(6)];
+    if (p.length !== 3 || p[0].length !== 4) return '';
+    var y = +p[0], m = +p[1], day = +p[2], dt = new Date(y, m - 1, day);
+    if (dt.getFullYear() !== y || dt.getMonth() !== m - 1 || dt.getDate() !== day || y < 1900 || dt > new Date()) return '';
+    return y + '-' + ('0' + m).slice(-2) + '-' + ('0' + day).slice(-2);
+  }
 
   function data() {
     var fd = new FormData(form), d = {};
     fd.forEach(function (v, k) { d[k] = typeof v === 'string' ? v.trim() : v; });
     d.agree = form.elements.agree.checked;
+    d.birth = normBirth(d.birth);
     return d;
   }
   function missing(d) {
@@ -37,6 +48,7 @@
   }
   function showErr(msg) { err.textContent = msg; err.hidden = !msg; }
 
+  form.elements.birth.addEventListener('blur', function () { var b = normBirth(this.value); if (b) this.value = b.replace(/-/g, '.'); });
   form.addEventListener('input', function () { if (tried) { var m = missing(data()); paint(m); if (!m.length) showErr(''); } });
   form.addEventListener('change', function () { if (tried) paint(missing(data())); });
 
@@ -51,7 +63,7 @@
       if (first && first.focus) first.focus();
       return;
     }
-    showErr('');
+    showErr(''); ok.hidden = true;
     var endpoint = form.getAttribute('data-endpoint');
     if (!endpoint) { showErr('지원서 접수 주소가 아직 연결되지 않았습니다. hello@nonce.community로 문의해 주세요.'); return; }
     btn.disabled = true; btn.textContent = '제출하는 중…';
@@ -59,18 +71,12 @@
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.error || 'error');
-        document.getElementById('done-name').textContent = d.name;
-        form.hidden = true; done.hidden = false; done.focus();
+        form.reset(); tried = false; paint([]);
+        ok.hidden = false;
       })
       .catch(function () {
         showErr('제출하지 못했습니다. 잠시 후 다시 시도하거나 hello@nonce.community로 보내 주세요.');
       })
       .then(function () { btn.disabled = false; btn.textContent = '지원서 제출'; });
-  });
-
-  document.getElementById('again').addEventListener('click', function () {
-    form.reset(); tried = false; paint([]); showErr('');
-    done.hidden = true; form.hidden = false;
-    form.querySelector('input[name=space]').focus();
   });
 })();
