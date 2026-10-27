@@ -31,7 +31,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 ## 디자인 토큰
 - 메인·지원서(어두운 테마): 배경 `#000`, 본문 `#f2f2f2`, 보조 `#a6a6a6`, 선 `#1f1f1f`/`#3a3a3a`
 - 호점 페이지(밝은 테마): 배경 `#FAF9F6`, 글자 `#1A1A1A`, 보조 `#5C5C5C`, 선 `#C9C7C2`, 강조 빨강 `#B3261E`
-- 글꼴: 한글은 모두 `Asta Sans`(nonce.foundation과 같은 글꼴, `--sans`). 영문 로고·히어로 `nonce`·"Basecamp for Future Rebels"는 `Noto Serif KR`(`--serif-kr`, 한글에는 쓰지 않는다), 영문 어원 `EB Garamond`, 레이블 `IBM Plex Mono`(한글은 Asta Sans로 대체), 호점 페이지 영문 `Newsreader` / `Hanken Grotesk`
+- 글꼴: 로고·히어로와 한글 제목·큰 숫자는 `Noto Serif KR` 600(`--serif-kr`, 로고와 같은 글꼴), 본문·레이블 한글은 `Asta Sans`(nonce.foundation과 같은 글꼴, `--sans`), 영문 어원 `EB Garamond`, 레이블 `IBM Plex Mono`(한글은 Asta Sans로 대체), 호점 페이지 영문 `Newsreader` / `Hanken Grotesk`
 - 로고는 텍스트 "nonce" (Noto Serif KR 600). 이미지 로고 없음.
 
 ## 표기 규칙
