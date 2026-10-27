@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/herotopia", "destination": "/herotopia/", "permanent": true }
+  ]
+}
