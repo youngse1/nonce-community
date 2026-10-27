@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>베이스캠프 입주 지원 | nonce</title>
+<meta name="description" content="논스 베이스캠프 입주 지원서. 기존 멤버의 추천으로 지원하고, 진정성·도전·정을 인터뷰로 함께 확인합니다.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://nonce.community/apply.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="nonce community">
+<meta property="og:title" content="베이스캠프 입주 지원 | nonce">
+<meta property="og:description" content="논스 베이스캠프 입주 지원서. 기존 멤버의 추천으로 지원하고, 진정성·도전·정을 인터뷰로 함께 확인합니다.">
+<meta property="og:url" content="https://nonce.community/apply.html">
+<meta property="og:image" content="https://nonce.community/img/cards/genesis.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='40' font-weight='700' fill='%23fff' text-anchor='middle'%3En%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Noto+Serif+KR:wght@400;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="dark">
+<a class="skip" href="#content">본문으로 건너뛰기</a>
+
+<header class="site-header">
+<div class="bar">
+<a class="logo" href="index.html" aria-label="nonce 메인으로">nonce</a>
+<a class="back" href="index.html">← 메인으로</a>
+</div>
+</header>
+<main id="content" class="apply-main">
+<div class="apply-intro">
+<span class="mono-label">0x00000005 — APPLY</span>
+<h1>베이스캠프 입주 지원</h1>
+<p>블록이 이전 블록의 해시를 참조하듯, 논스의 모든 연결에는 신뢰의 연결고리가 있습니다. 새로운 멤버는 기존 논스 멤버의 추천을 통해서만 지원할 수 있고, 세 가지 인재상 — 진정성, 도전, 정 — 을 인터뷰로 함께 확인합니다.</p>
+<ol class="steps">
+<li><span class="k">01</span><span class="t">멤버 추천</span></li>
+<li><span class="k">02</span><span class="t">지원서 제출</span></li>
+<li><span class="k">03</span><span class="t">인터뷰</span></li>
+</ol>
+</div>
+
+<section class="done" id="done" hidden aria-live="polite" tabindex="-1">
+<span class="mono-label">BLOCK SUBMITTED · <span id="receipt"></span></span>
+<h2>지원서가 접수되었습니다</h2>
+<p><span id="done-name"></span>님, 지원해 주셔서 고맙습니다. 추천인 확인과 검토를 거쳐 입력하신 연락처로 인터뷰 일정을 안내드리겠습니다.</p>
+<div class="row">
+<a class="btn btn-solid" href="index.html" style="min-height: 52px">메인으로 돌아가기</a>
+<button type="button" class="ghost-btn" id="again">새 지원서 작성</button>
+</div>
+</section>
+
+<form class="apply" id="apply" novalidate aria-label="베이스캠프 입주 지원서" data-endpoint="">
+<fieldset>
+<legend><span class="k">01</span><span class="t">지원 공간</span></legend>
+<div class="spaces" role="radiogroup" aria-label="지원 공간" aria-required="true" id="spaces">
+<label class="space"><input type="radio" name="space" value="coliving" required><span class="tx"><span class="a">코리빙</span><span class="b">논스 헤테로토피아 — 창업가 하우스</span></span></label>
+<label class="space"><input type="radio" name="space" value="coworking" required><span class="tx"><span class="a">코워킹</span><span class="b">고정석 · 자율석</span></span></label>
+<label class="space"><input type="radio" name="space" value="undecided" required><span class="tx"><span class="a">아직 모르겠어요</span><span class="b">인터뷰에서 함께 정해요</span></span></label>
+</div>
+<div class="f">
+<label for="f-when">희망 입주 시기<span class="opt"> (선택)</span></label>
+<input type="text" id="f-when" name="when" placeholder="예: 2027년 1월" maxlength="500">
+</div>
+</fieldset>
+<fieldset>
+<legend><span class="k">02</span><span class="t">기본 정보</span></legend>
+<div class="fgrid two">
+<div class="f">
+<label for="f-name">이름<span class="req" aria-hidden="true"> *</span></label>
+<input type="text" id="f-name" name="name" required autocomplete="name" maxlength="500">
+</div>
+<div class="f">
+<label for="f-email">이메일<span class="req" aria-hidden="true"> *</span></label>
+<input type="email" id="f-email" name="email" required autocomplete="email" maxlength="500">
+</div>
+<div class="f">
+<label for="f-phone">연락처<span class="req" aria-hidden="true"> *</span></label>
+<input type="tel" id="f-phone" name="phone" required placeholder="010-0000-0000" autocomplete="tel" maxlength="500">
+</div>
+<div class="f">
+<label for="f-work">지금 하는 일<span class="req" aria-hidden="true"> *</span></label>
+<input type="text" id="f-work" name="work" required placeholder="소속과 역할, 또는 만들고 있는 것" maxlength="500">
+</div>
+</div>
+</fieldset>
+<fieldset>
+<legend><span class="k">03</span><span class="t">추천인</span></legend>
+<div class="fgrid two">
+<div class="f">
+<label for="f-referrer">추천해 준 논스 멤버<span class="req" aria-hidden="true"> *</span></label>
+<input type="text" id="f-referrer" name="referrer" required placeholder="이름" maxlength="500">
+</div>
+<div class="f">
+<label for="f-relation">추천인과의 관계<span class="opt"> (선택)</span></label>
+<input type="text" id="f-relation" name="relation" placeholder="어떻게 알게 되었는지" maxlength="500">
+</div>
+</div>
+</fieldset>
+<fieldset>
+<legend><span class="k">04</span><span class="t">질문</span></legend>
+<div class="fgrid">
+<div class="f">
+<label for="f-mission">지금 풀고 있는 문제는 무엇이고, 왜 당신이 풀어야 하나요?<span class="req" aria-hidden="true"> *</span></label>
+<textarea id="f-mission" name="mission" required rows="5" maxlength="5000"></textarea>
+</div>
+<div class="f">
+<label for="f-challenge">가장 크게 도전했던 경험을 들려주세요.<span class="req" aria-hidden="true"> *</span></label>
+<textarea id="f-challenge" name="challenge" required rows="5" maxlength="5000"></textarea>
+</div>
+<div class="f">
+<label for="f-share">논스 공동체에 무엇을 나누고, 무엇을 얻고 싶나요?<span class="req" aria-hidden="true"> *</span></label>
+<textarea id="f-share" name="share" required rows="5" maxlength="5000"></textarea>
+</div>
+<div class="f">
+<label for="f-links">포트폴리오 · SNS 링크<span class="opt"> (선택)</span></label>
+<input type="text" id="f-links" name="links" placeholder="https://" maxlength="500">
+</div>
+</div>
+</fieldset>
+<fieldset>
+<legend class="sr-only">동의 및 제출</legend>
+<div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+<label class="agree" for="f-agree"><input id="f-agree" name="agree" type="checkbox" required><span>지원 검토와 인터뷰 안내를 위해 이름, 연락처, 이메일과 작성한 답변을 수집·이용하는 데 동의합니다. 수집한 정보는 논스 커뮤니티가 지원일로부터 3년간 보관한 뒤 파기하며, 그 전에 삭제를 원하시면 hello@nonce.community로 요청해 주세요.<span class="req" aria-hidden="true"> *</span></span></label>
+<p class="err" id="err" role="alert" hidden></p>
+<button type="submit" class="submit" id="submit">지원서 제출</button>
+</fieldset>
+</form>
+</main>
+<footer class="site-footer">
+<div class="row">
+<div class="brand">
+<a class="logo" href="index.html" aria-label="nonce 메인으로">nonce</a>
+<span class="mono-label" style="letter-spacing: 0.1em">NONCE COMMUNITY · SEOUL · SINCE 2018</span>
+</div>
+<div class="cols">
+<div class="col">
+<span class="mono-label">CONTACT</span>
+<a href="mailto:hello@nonce.community">hello@nonce.community</a>
+<span>서울특별시 강남구 봉은사로 22길 45-9</span>
+</div>
+<div class="col">
+<span class="mono-label">FOLLOW</span>
+<a href="https://www.instagram.com/nonce.community" target="_blank" rel="noopener">Instagram</a>
+<a href="https://brunch.co.kr/@nonce" target="_blank" rel="noopener">Brunch</a>
+<a href="https://namu.wiki/w/%EB%85%BC%EC%8A%A4" target="_blank" rel="noopener">Wiki</a>
+</div>
+</div>
+</div>
+<p class="legal">© 2026 Nonce Community. We connect trustworthy people building trustless technologies.</p>
+</footer>
+<script src="js/apply.js" defer></script>
+</body>
+</html>
