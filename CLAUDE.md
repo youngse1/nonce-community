@@ -31,7 +31,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 ## 디자인 토큰
 - 메인·지원서(어두운 테마): 배경 `#000`, 본문 `#f2f2f2`, 보조 `#a6a6a6`, 선 `#1f1f1f`/`#3a3a3a`
 - 호점 페이지(밝은 테마): 배경 `#FAF9F6`, 글자 `#1A1A1A`, 보조 `#5C5C5C`, 선 `#C9C7C2`, 강조 빨강 `#B3261E`
-- 글꼴: 로고·제목 `Noto Serif KR`, 영문 어원 `EB Garamond`, 레이블 `IBM Plex Mono`, 본문 `IBM Plex Sans KR`, 호점 페이지 제목 `Newsreader` / `Hanken Grotesk`
+- 글꼴: 로고·히어로와 한글 제목·큰 숫자는 `Noto Serif KR` 600(`--serif-kr`, 로고와 같은 글꼴), 본문·레이블 한글은 `Asta Sans`(nonce.foundation과 같은 글꼴, `--sans`), 영문 어원 `EB Garamond`, 레이블 `IBM Plex Mono`(한글은 Asta Sans로 대체), 호점 페이지 영문 `Newsreader` / `Hanken Grotesk`
 - 로고는 텍스트 "nonce" (Noto Serif KR 600). 이미지 로고 없음.
 
 ## 표기 규칙
@@ -43,8 +43,9 @@ python3 -m http.server 8000     # → http://localhost:8000
 
 ## 지원서
 - 제출 주소는 `apply.html`의 `<form id="apply" data-endpoint="">`. Apps Script 웹 앱 주소(…/exec)를 넣으면 「논스 베이스캠프 입주 지원서 응답」 스프레드시트에 쌓인다.
-- 보내는 필드 이름(`space, when, name, email, phone, work, referrer, relation, mission, challenge, share, links, agree, website`)은 `apply-receiver.gs`와 맞아야 한다. `website`는 스팸 방지용 숨은 칸.
+- 보내는 필드 이름(`space, when, name, birth, email, phone, work, referrer, relation, life, mission, talent, share, links, agree, website`)은 `apply-receiver.gs`와 맞아야 한다. `website`는 스팸 방지용 숨은 칸.
 - 개인정보 문구: 지원일로부터 3년 보관 후 파기.
+- 접수 확인은 메일로만 한다: Apps Script가 지원자에게 확인 메일(접수 번호 포함)을 보낸다. 지원서 페이지에는 확인 화면이 없고, 제출 버튼 위에 한 줄 안내만 뜬다.
 
 ## 남은 일
 - [ ] 지원서 `data-endpoint`에 Apps Script 웹 앱 주소 연결

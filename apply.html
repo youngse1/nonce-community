@@ -17,7 +17,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='40' font-weight='700' fill='%23fff' text-anchor='middle'%3En%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Noto+Serif+KR:wght@400;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+KR:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Noto+Serif+KR:wght@400;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Asta+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="dark">
@@ -29,35 +29,29 @@
 <a class="back" href="index.html">← 메인으로</a>
 </div>
 </header>
-<main id="content" class="apply-main">
+<main id="content">
+<div class="apply-main apply-head">
 <div class="apply-intro">
 <span class="mono-label">0x00000005 — APPLY</span>
 <h1>베이스캠프 입주 지원</h1>
-<p>블록이 이전 블록의 해시를 참조하듯, 논스의 모든 연결에는 신뢰의 연결고리가 있습니다. 새로운 멤버는 기존 논스 멤버의 추천을 통해서만 지원할 수 있고, 세 가지 인재상 — 진정성, 도전, 정 — 을 인터뷰로 함께 확인합니다.</p>
+<p>블록이 이전 블록의 해시를 참조하듯, 논스의 모든 연결에는 신뢰의 연결고리가 있습니다. 기존 논스 멤버의 추천이 있으면 좋지만 추천인이 없어도 지원할 수 있고, 세 가지 인재상 — 진정성, 도전, 정 — 을 인터뷰로 함께 확인합니다.</p>
 <ol class="steps">
-<li><span class="k">01</span><span class="t">멤버 추천</span></li>
+<li><span class="k">01</span><span class="t">멤버 추천 (선택)</span></li>
 <li><span class="k">02</span><span class="t">지원서 제출</span></li>
 <li><span class="k">03</span><span class="t">인터뷰</span></li>
 </ol>
 </div>
-
-<section class="done" id="done" hidden aria-live="polite" tabindex="-1">
-<span class="mono-label">BLOCK SUBMITTED · <span id="receipt"></span></span>
-<h2>지원서가 접수되었습니다</h2>
-<p><span id="done-name"></span>님, 지원해 주셔서 고맙습니다. 추천인 확인과 검토를 거쳐 입력하신 연락처로 인터뷰 일정을 안내드리겠습니다.</p>
-<div class="row">
-<a class="btn btn-solid" href="index.html" style="min-height: 52px">메인으로 돌아가기</a>
-<button type="button" class="ghost-btn" id="again">새 지원서 작성</button>
 </div>
-</section>
 
+<div class="rebels"><p><span>Basecamp for<br>Future Rebels</span></p></div>
+
+<div class="apply-main apply-body">
 <form class="apply" id="apply" novalidate aria-label="베이스캠프 입주 지원서" data-endpoint="">
 <fieldset>
 <legend><span class="k">01</span><span class="t">지원 공간</span></legend>
 <div class="spaces" role="radiogroup" aria-label="지원 공간" aria-required="true" id="spaces">
-<label class="space"><input type="radio" name="space" value="coliving" required><span class="tx"><span class="a">코리빙</span><span class="b">논스 헤테로토피아 — 창업가 하우스</span></span></label>
-<label class="space"><input type="radio" name="space" value="coworking" required><span class="tx"><span class="a">코워킹</span><span class="b">고정석 · 자율석</span></span></label>
-<label class="space"><input type="radio" name="space" value="undecided" required><span class="tx"><span class="a">아직 모르겠어요</span><span class="b">인터뷰에서 함께 정해요</span></span></label>
+<label class="space"><input type="radio" name="space" value="coliving" required><span class="tx"><span class="a">코리빙</span><span class="b">헤테로토피아 — 창업가하우스</span></span></label>
+<label class="space"><input type="radio" name="space" value="coworking" required><span class="tx"><span class="a">코워킹</span><span class="b">베이스캠프 — 고정석 · 자율석</span></span></label>
 </div>
 <div class="f">
 <label for="f-when">희망 입주 시기<span class="opt"> (선택)</span></label>
@@ -70,6 +64,10 @@
 <div class="f">
 <label for="f-name">이름<span class="req" aria-hidden="true"> *</span></label>
 <input type="text" id="f-name" name="name" required autocomplete="name" maxlength="500">
+</div>
+<div class="f">
+<label for="f-birth">생년월일<span class="req" aria-hidden="true"> *</span></label>
+<input type="text" id="f-birth" name="birth" required placeholder="예: 1995.03.02" inputmode="numeric" autocomplete="bday" maxlength="10">
 </div>
 <div class="f">
 <label for="f-email">이메일<span class="req" aria-hidden="true"> *</span></label>
@@ -87,10 +85,11 @@
 </fieldset>
 <fieldset>
 <legend><span class="k">03</span><span class="t">추천인</span></legend>
+<p class="hint">추천인이 없어도 지원할 수 있습니다. 아는 논스 멤버가 있다면 적어 주세요.</p>
 <div class="fgrid two">
 <div class="f">
-<label for="f-referrer">추천해 준 논스 멤버<span class="req" aria-hidden="true"> *</span></label>
-<input type="text" id="f-referrer" name="referrer" required placeholder="이름" maxlength="500">
+<label for="f-referrer">추천해 준 논스 멤버<span class="opt"> (선택)</span></label>
+<input type="text" id="f-referrer" name="referrer" placeholder="이름" maxlength="500">
 </div>
 <div class="f">
 <label for="f-relation">추천인과의 관계<span class="opt"> (선택)</span></label>
@@ -102,12 +101,16 @@
 <legend><span class="k">04</span><span class="t">질문</span></legend>
 <div class="fgrid">
 <div class="f">
+<label for="f-life">지금까지 어떻게 살아오셨나요? (인생의 전환점을 기준으로 이야기해 주세요.)<span class="req" aria-hidden="true"> *</span></label>
+<textarea id="f-life" name="life" required rows="5" maxlength="5000"></textarea>
+</div>
+<div class="f">
 <label for="f-mission">지금 풀고 있는 문제는 무엇이고, 왜 당신이 풀어야 하나요?<span class="req" aria-hidden="true"> *</span></label>
 <textarea id="f-mission" name="mission" required rows="5" maxlength="5000"></textarea>
 </div>
 <div class="f">
-<label for="f-challenge">가장 크게 도전했던 경험을 들려주세요.<span class="req" aria-hidden="true"> *</span></label>
-<textarea id="f-challenge" name="challenge" required rows="5" maxlength="5000"></textarea>
+<label for="f-talent">자신만의 재능을 알려주세요.<span class="req" aria-hidden="true"> *</span></label>
+<textarea id="f-talent" name="talent" required rows="5" maxlength="5000"></textarea>
 </div>
 <div class="f">
 <label for="f-share">논스 공동체에 무엇을 나누고, 무엇을 얻고 싶나요?<span class="req" aria-hidden="true"> *</span></label>
@@ -122,11 +125,13 @@
 <fieldset>
 <legend class="sr-only">동의 및 제출</legend>
 <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
-<label class="agree" for="f-agree"><input id="f-agree" name="agree" type="checkbox" required><span>지원 검토와 인터뷰 안내를 위해 이름, 연락처, 이메일과 작성한 답변을 수집·이용하는 데 동의합니다. 수집한 정보는 논스 커뮤니티가 지원일로부터 3년간 보관한 뒤 파기하며, 그 전에 삭제를 원하시면 hello@nonce.community로 요청해 주세요.<span class="req" aria-hidden="true"> *</span></span></label>
+<label class="agree" for="f-agree"><input id="f-agree" name="agree" type="checkbox" required><span>지원 검토와 인터뷰 안내를 위해 이름, 생년월일, 연락처, 이메일과 작성한 답변을 수집·이용하는 데 동의합니다. 수집한 정보는 논스 커뮤니티가 지원일로부터 3년간 보관한 뒤 파기하며, 그 전에 삭제를 원하시면 hello@nonce.community로 요청해 주세요.<span class="req" aria-hidden="true"> *</span></span></label>
 <p class="err" id="err" role="alert" hidden></p>
+<p class="ok" id="ok" role="status" hidden>제출되었습니다. 입력하신 이메일로 접수 확인 메일을 보내드렸습니다.</p>
 <button type="submit" class="submit" id="submit">지원서 제출</button>
 </fieldset>
 </form>
+</div>
 </main>
 <footer class="site-footer">
 <div class="row">
