@@ -10,7 +10,7 @@
   var spaces = document.getElementById('spaces');
   var LABELS = {
     space: '지원 공간', name: '이름', email: '이메일', phone: '연락처', work: '지금 하는 일',
-    referrer: '추천해 준 논스 멤버', mission: '문제와 사명', challenge: '도전 경험', share: '나눌 것과 얻을 것', agree: '개인정보 동의'
+    mission: '문제와 사명', challenge: '도전 경험', share: '나눌 것과 얻을 것', agree: '개인정보 동의'
   };
   var REQUIRED = Object.keys(LABELS);
   var tried = false;
@@ -59,7 +59,6 @@
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (!res.ok) throw new Error(res.error || 'error');
-        document.getElementById('receipt').textContent = res.receipt || '';
         document.getElementById('done-name').textContent = d.name;
         form.hidden = true; done.hidden = false; done.focus();
       })

@@ -17,8 +17,8 @@
 const SHEET_NAME = '응답';
 const NOTIFY_EMAIL = 'hello@nonce.community';   // 알림이 필요 없으면 '' 로 두세요.
 
-const SPACE_LABEL = { coliving: '코리빙 (헤테로토피아)', coworking: '코워킹', undecided: '아직 모르겠어요' };
-const REQUIRED = ['space', 'name', 'email', 'phone', 'work', 'referrer', 'mission', 'challenge', 'share', 'agree'];
+const SPACE_LABEL = { coliving: '코리빙 (헤테로토피아 — 창업가하우스)', coworking: '코워킹 (베이스캠프 — 고정석 · 자율석)' };
+const REQUIRED = ['space', 'name', 'email', 'phone', 'work', 'mission', 'challenge', 'share', 'agree'];
 const LIMIT = 5000;   // 한 칸에 저장할 최대 글자 수
 
 function doPost(e) {
@@ -53,7 +53,7 @@ function doPost(e) {
     if (NOTIFY_EMAIL) {
       MailApp.sendEmail(NOTIFY_EMAIL,
         '[논스] 새 입주 지원서 — ' + clean(d.name),
-        clean(d.name) + '님이 ' + (SPACE_LABEL[d.space] || '') + ' 입주를 지원했습니다.\n추천인: ' + clean(d.referrer) +
+        clean(d.name) + '님이 ' + (SPACE_LABEL[d.space] || '') + ' 입주를 지원했습니다.\n추천인: ' + (clean(d.referrer) || '없음') +
         '\n\n스프레드시트: ' + SpreadsheetApp.getActive().getUrl());
     }
     return json({ ok: true, receipt: receipt });

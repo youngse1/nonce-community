@@ -47,8 +47,8 @@
   }
 
   // ---- mobile menu ----
-  var btn = document.querySelector('.menu-btn');
-  var nav = document.getElementById('m-nav');
+  var btn = document.querySelector('.menu-btn, .lt-menu');
+  var nav = btn && document.getElementById(btn.getAttribute('aria-controls'));
   if (btn && nav) {
     var set = function (open) { nav.setAttribute('data-open', open ? 'true' : 'false'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
     btn.addEventListener('click', function () { set(nav.getAttribute('data-open') !== 'true'); });

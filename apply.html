@@ -33,18 +33,16 @@
 <div class="apply-intro">
 <span class="mono-label">0x00000005 — APPLY</span>
 <h1>베이스캠프 입주 지원</h1>
-<p>블록이 이전 블록의 해시를 참조하듯, 논스의 모든 연결에는 신뢰의 연결고리가 있습니다. 새로운 멤버는 기존 논스 멤버의 추천을 통해서만 지원할 수 있고, 세 가지 인재상 — 진정성, 도전, 정 — 을 인터뷰로 함께 확인합니다.</p>
+<p>블록이 이전 블록의 해시를 참조하듯, 논스의 모든 연결에는 신뢰의 연결고리가 있습니다. 기존 논스 멤버의 추천이 있으면 좋지만 추천인이 없어도 지원할 수 있고, 세 가지 인재상 — 진정성, 도전, 정 — 을 인터뷰로 함께 확인합니다.</p>
 <ol class="steps">
-<li><span class="k">01</span><span class="t">멤버 추천</span></li>
+<li><span class="k">01</span><span class="t">멤버 추천 (선택)</span></li>
 <li><span class="k">02</span><span class="t">지원서 제출</span></li>
 <li><span class="k">03</span><span class="t">인터뷰</span></li>
 </ol>
 </div>
 
 <section class="done" id="done" hidden aria-live="polite" tabindex="-1">
-<span class="mono-label">BLOCK SUBMITTED · <span id="receipt"></span></span>
-<h2>지원서가 접수되었습니다</h2>
-<p><span id="done-name"></span>님, 지원해 주셔서 고맙습니다. 추천인 확인과 검토를 거쳐 입력하신 연락처로 인터뷰 일정을 안내드리겠습니다.</p>
+<p><span id="done-name"></span>님, 지원해 주셔서 고맙습니다. 검토를 거쳐 입력하신 연락처로 인터뷰 일정을 안내드리겠습니다.</p>
 <div class="row">
 <a class="btn btn-solid" href="index.html" style="min-height: 52px">메인으로 돌아가기</a>
 <button type="button" class="ghost-btn" id="again">새 지원서 작성</button>
@@ -55,9 +53,8 @@
 <fieldset>
 <legend><span class="k">01</span><span class="t">지원 공간</span></legend>
 <div class="spaces" role="radiogroup" aria-label="지원 공간" aria-required="true" id="spaces">
-<label class="space"><input type="radio" name="space" value="coliving" required><span class="tx"><span class="a">코리빙</span><span class="b">논스 헤테로토피아 — 창업가 하우스</span></span></label>
-<label class="space"><input type="radio" name="space" value="coworking" required><span class="tx"><span class="a">코워킹</span><span class="b">고정석 · 자율석</span></span></label>
-<label class="space"><input type="radio" name="space" value="undecided" required><span class="tx"><span class="a">아직 모르겠어요</span><span class="b">인터뷰에서 함께 정해요</span></span></label>
+<label class="space"><input type="radio" name="space" value="coliving" required><span class="tx"><span class="a">코리빙</span><span class="b">헤테로토피아 — 창업가하우스</span></span></label>
+<label class="space"><input type="radio" name="space" value="coworking" required><span class="tx"><span class="a">코워킹</span><span class="b">베이스캠프 — 고정석 · 자율석</span></span></label>
 </div>
 <div class="f">
 <label for="f-when">희망 입주 시기<span class="opt"> (선택)</span></label>
@@ -87,10 +84,11 @@
 </fieldset>
 <fieldset>
 <legend><span class="k">03</span><span class="t">추천인</span></legend>
+<p class="hint">추천인이 없어도 지원할 수 있습니다. 아는 논스 멤버가 있다면 적어 주세요.</p>
 <div class="fgrid two">
 <div class="f">
-<label for="f-referrer">추천해 준 논스 멤버<span class="req" aria-hidden="true"> *</span></label>
-<input type="text" id="f-referrer" name="referrer" required placeholder="이름" maxlength="500">
+<label for="f-referrer">추천해 준 논스 멤버<span class="opt"> (선택)</span></label>
+<input type="text" id="f-referrer" name="referrer" placeholder="이름" maxlength="500">
 </div>
 <div class="f">
 <label for="f-relation">추천인과의 관계<span class="opt"> (선택)</span></label>

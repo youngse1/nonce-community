@@ -25,16 +25,15 @@
 
 <header class="lt-header">
 <a class="logo" href="index.html" aria-label="nonce 메인으로">nonce</a>
-<nav class="lt-nav" aria-label="주 메뉴"><a href="index.html#etymology">ABOUT</a><a href="index.html">NONCE</a><a href="index.html#basecamps">ARCHIVE</a><a href="apply.html">CAREER</a></nav>
-<a class="lt-menu" href="index.html#basecamps" aria-label="베이스캠프 목록으로"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg></a>
+<button type="button" class="lt-menu" aria-label="호점 목록" aria-expanded="false" aria-controls="camps"><svg class="i-open" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="i-close" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
 </header>
-<nav class="tabs" aria-label="베이스캠프 호점">
-<span><a class="tab" href="genesis.html">GENESIS</a><sup>1</sup></span>
-<span><a class="tab" href="lighthouse.html">LIGHT</a><sup>2</sup></span>
-<span><a class="tab" href="heterotopia.html">HETEROTOPIA</a><sup>3</sup></span>
-<span><span class="tab" aria-current="page">SAPIENS</span><sup aria-hidden="true">↙</sup></span>
-<span><a class="tab" href="immersion.html">IMMERSION</a><sup>4</sup></span>
-<span><a class="tab" href="ohora.html">OHORA</a><sup>5</sup></span>
+<nav class="tabs" id="camps" aria-label="베이스캠프 호점" data-open="false">
+<a class="tab" href="genesis.html"><span class="k">0x01 · 1호점</span><span class="t">GENESIS</span></a>
+<a class="tab" href="lighthouse.html"><span class="k">0x02 · 2호점</span><span class="t">LIGHT</span></a>
+<a class="tab" href="heterotopia.html"><span class="k">0x03 · 3호점</span><span class="t">HETEROTOPIA</span></a>
+<span class="tab" aria-current="page"><span class="k">0x04 · 前 4호점</span><span class="t">SAPIENS</span></span>
+<a class="tab" href="immersion.html"><span class="k">0x04 · 現 4호점</span><span class="t">IMMERSION</span></a>
+<a class="tab" href="ohora.html"><span class="k">0x05 · 5호점</span><span class="t">OHORA</span></a>
 </nav>
 <main id="content">
 <section class="lt-hero" aria-labelledby="g-title">
@@ -163,5 +162,6 @@
 </div>
 <p class="legal">© 2026 Nonce Community. We connect trustworthy people building trustless technologies.</p>
 </footer>
+<script src="js/main.js" defer></script>
 </body>
 </html>
