@@ -66,7 +66,7 @@
   .eb-cell:nth-child(n+2){border-top:1px solid #1f1f1f}
   .eb-word{font-size:40px}
   .e2-close p{font-size:21px}
-  .pick{bottom:12px}.pick button{padding:0 12px}
+  .pick{bottom:12px}.pick button{padding:0 11px}.pick .nm{display:none}
 }
 /* C: mirrored on the page's centre axis */
 .ec-rows{position:relative;padding:8px 0}
@@ -93,6 +93,51 @@
   .ec-word{text-align:left;font-size:32px}
   .ed-row{grid-template-columns:1fr;row-gap:12px;padding:28px 0}
   .ed-word{font-size:32px}
+}
+/* E: editorial spread, sticky title */
+.ee-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(40px,6vw,96px)}
+.ee-side{position:sticky;top:96px;align-self:start;display:flex;flex-direction:column;gap:24px}
+.ee-side h2{margin:0;font-family:var(--serif-en);font-weight:400;font-size:clamp(44px,4.6vw,64px);line-height:1.06;letter-spacing:-.01em;color:#fff}
+.ee-side h2 i{font-weight:500}
+.ee-close{margin-top:16px}
+.ee-rule{width:48px;height:1px;background:#fff;margin-bottom:24px}
+.ee-close p{margin:0;font-family:var(--serif-kr);font-weight:600;font-size:clamp(18px,1.6vw,21px);line-height:1.8;color:#d9d9d9;text-wrap:balance}
+.ee-rows{border-top:1px solid #3a3a3a}
+.ee-row{display:grid;grid-template-columns:150px minmax(0,1fr);column-gap:32px;align-items:baseline;padding:32px 0;border-bottom:1px solid #1f1f1f}
+.ee-word{font-family:var(--serif-en);font-weight:500;font-size:clamp(30px,2.8vw,38px);line-height:1.05;color:#fff}
+.ee-word.it{font-style:italic}
+.ee-body{display:flex;flex-direction:column;gap:8px}
+/* F: hex-dump table */
+.ef-cols,.ef-row{display:grid;grid-template-columns:96px 180px minmax(0,1fr) 170px;column-gap:28px}
+.ef-cols{padding:0 0 12px;border-bottom:1px solid #3a3a3a;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#5a5a5a}
+.ef-cols span:last-child,.ef-hex{text-align:right}
+.ef-row{align-items:baseline;padding:32px 0;border-bottom:1px solid #1f1f1f}
+.ef-addr,.ef-hex{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#5a5a5a;white-space:nowrap}
+.ef-row:hover .ef-addr,.ef-row:hover .ef-hex{color:#a6a6a6}
+.ef-word{font-family:var(--serif-en);font-weight:500;font-size:clamp(32px,3.2vw,42px);line-height:1.05;color:#fff}
+.ef-word.it{font-style:italic}
+.ef-body{display:flex;flex-direction:column;gap:8px}
+@media (min-width:768px) and (max-width:1023px){
+  .ee-grid{grid-template-columns:1fr}
+  .ee-side{position:static;margin-bottom:56px;align-items:center;text-align:center}
+  .ee-side h2 br{display:none}
+  .ee-rule{margin:0 auto 24px}
+  .ef-cols,.ef-row{grid-template-columns:72px 150px minmax(0,1fr);column-gap:24px}
+  .ef-cols span:last-child,.ef-hex{display:none}
+}
+@media (max-width:767px){
+  .ee-grid{grid-template-columns:1fr}
+  .ee-side{position:static;margin-bottom:40px;align-items:center;text-align:center;gap:18px}
+  .ee-side h2{font-size:40px}
+  .ee-rule{margin:0 auto 20px}
+  .ee-close p{font-size:18px}
+  .ee-row{grid-template-columns:1fr;row-gap:12px;padding:28px 0}
+  .ee-word{font-size:32px}
+  .ef-cols{display:none}
+  .ef-rows{border-top:1px solid #3a3a3a}
+  .ef-row{grid-template-columns:auto 1fr;grid-template-areas:"addr hex" "word word" "body body";row-gap:10px;padding:28px 0}
+  .ef-addr{grid-area:addr;font-size:11px}.ef-hex{grid-area:hex;font-size:11px}
+  .ef-word{grid-area:word;font-size:32px;margin-top:4px}.ef-body{grid-area:body}
 }
 </style>
 </head>
@@ -326,6 +371,11 @@
 <span lang="en" class="ed-word">Rebel</span>
 <div class="ed-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div>
 </div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
+<section class="sec e2 ee" data-v="e" hidden aria-label="어원 (E안)"><div class="inner ee-grid"><div class="ee-side"><span class="mono-label">0x00000001 — ETYMOLOGY</span><h2 lang="en"><i>nonce</i> :<br>Basecamp<br>for Future<br>Rebels</h2><div class="ee-close"><div class="ee-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div><div class="ee-rows"><div class="ee-row"><span lang="en" class="ee-word it">nonce</span><div class="ee-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div></div><div class="ee-row"><span lang="en" class="ee-word">Base</span><div class="ee-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div></div><div class="ee-row"><span lang="en" class="ee-word">Camp</span><div class="ee-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div></div><div class="ee-row"><span lang="en" class="ee-word">For</span><div class="ee-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div></div><div class="ee-row"><span lang="en" class="ee-word">Future</span><div class="ee-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div></div><div class="ee-row"><span lang="en" class="ee-word">Rebel</span><div class="ee-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div></div></div></div></section>
+<section class="sec e2 ef" data-v="f" hidden aria-label="어원 (F안)"><div class="inner"><div class="e2-head">
+<span class="mono-label">0x00000001 — ETYMOLOGY</span>
+<h2 lang="en">nonce : Basecamp for Future Rebels</h2>
+</div><div class="ef-cols" aria-hidden="true"><span>OFFSET</span><span>WORD</span><span>ROOT</span><span>ASCII</span></div><div class="ef-rows"><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0000</span><span lang="en" class="ef-word it">nonce</span><div class="ef-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div><span class="ef-hex" aria-hidden="true">6E 6F 6E 63 65</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0010</span><span lang="en" class="ef-word">Base</span><div class="ef-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div><span class="ef-hex" aria-hidden="true">42 61 73 65</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0020</span><span lang="en" class="ef-word">Camp</span><div class="ef-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div><span class="ef-hex" aria-hidden="true">43 61 6D 70</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0030</span><span lang="en" class="ef-word">For</span><div class="ef-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div><span class="ef-hex" aria-hidden="true">46 6F 72</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0040</span><span lang="en" class="ef-word">Future</span><div class="ef-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div><span class="ef-hex" aria-hidden="true">46 75 74 75 72 65</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0050</span><span lang="en" class="ef-word">Rebel</span><div class="ef-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div><span class="ef-hex" aria-hidden="true">52 65 62 65 6C</span></div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
 
 <section class="stats-sec" aria-label="숫자로 보는 논스">
 <div class="stats">
@@ -441,8 +491,10 @@
 <button type="button" data-v="now" aria-pressed="true">지금</button>
 <button type="button" data-v="a" aria-pressed="false" title="블록 체인">A</button>
 <button type="button" data-v="b" aria-pressed="false" title="여섯 칸">B</button>
-<button type="button" data-v="c" aria-pressed="false">C · 가운데 축</button>
-<button type="button" data-v="d" aria-pressed="false">D · 가운데 단</button>
+<button type="button" data-v="c" aria-pressed="false" title="가운데 축">C</button>
+<button type="button" data-v="d" aria-pressed="false" title="가운데 단">D</button>
+<button type="button" data-v="e" aria-pressed="false">E<span class="nm"> · 펼침면</span></button>
+<button type="button" data-v="f" aria-pressed="false">F<span class="nm"> · 헥스 덤프</span></button>
 </div>
 <script>
 (function(){var bs=document.querySelectorAll('.pick button'),ss=document.querySelectorAll('section[data-v]');
