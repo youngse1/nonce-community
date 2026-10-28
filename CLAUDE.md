@@ -44,6 +44,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 - 한국어 줄바꿈은 `word-break: keep-all` 유지.
 
 ## 지원서
+- **지금은 지원 마감 상태다.** `apply.html`은 폼에 `hidden`을 걸고 그 자리에 마감 안내(`.closed`)를 보여 준다. 메인 페이지의 지원 버튼 네 개도 "지원 마감"으로 바꿨다. 다시 열 때는 `.closed` 블록을 지우고 폼의 `hidden`을 빼고, 메인 버튼 문구를 "입주 지원" / "베이스캠프 입주 지원" / "베이스캠프 입주 지원하기"로 되돌린다.
 - 제출 주소는 `apply.html`의 `<form id="apply" data-endpoint="">`. Apps Script 웹 앱 주소(…/exec)를 넣으면 「논스 베이스캠프 입주 지원서 응답」 스프레드시트에 쌓인다.
 - 보내는 필드 이름(`space, when, name, birth, email, phone, work, referrer, relation, life, mission, talent, share, links, agree, website`)은 `apply-receiver.gs`와 맞아야 한다. `website`는 스팸 방지용 숨은 칸.
 - 개인정보 문구: 지원일로부터 3년 보관 후 파기.
