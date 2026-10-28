@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/herotopia", "destination": "/heterotopia-2027", "permanent": true },
+    { "source": "/herotopia/:path*", "destination": "/heterotopia-2027/:path*", "permanent": true }
+  ]
 }
