@@ -54,4 +54,25 @@
     btn.addEventListener('click', function () { set(nav.getAttribute('data-open') !== 'true'); });
     nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
   }
+
+  // ---- in-page links: scroll to the section but keep the address free of #… ----
+  var go = function (el) {
+    el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    if (!el.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var el = a.getAttribute('href').length > 1 && document.getElementById(a.getAttribute('href').slice(1));
+    if (!el) return;
+    e.preventDefault();
+    go(el);
+  });
+  // old shared links like /#basecamps still land on the section; then the # is dropped from the address
+  if (location.hash && history.replaceState) {
+    var landed = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    history.replaceState(null, '', location.pathname + location.search);
+    if (landed) addEventListener('load', function () { landed.scrollIntoView({ behavior: 'instant' }); });
+  }
 })();
