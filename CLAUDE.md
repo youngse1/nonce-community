@@ -13,9 +13,9 @@ python3 -m http.server 8000     # → http://localhost:8000
 | 파일 | 내용 |
 |---|---|
 | `index.html` | 메인 (검은 배경): 히어로 헥스 덤프 → 어원 → 숫자 → 베이스캠프 지도·호점 카드 → 지원 안내 |
-| `genesis.html` `lighthouse.html` `heterotopia.html` `sapiens.html` `immersion.html` `ohora.html` | 호점 상세 (밝은 배경, 같은 구조) |
+| `genesis.html` `lighthouse.html` `heterotopia.html` `sapiens.html` `immersion.html` `ohora.html` | 호점 상세 (메인과 같은 어두운 톤, 같은 구조) |
 | `apply.html` | 베이스캠프 입주 지원서 |
-| `css/site.css` | 모든 페이지 공통 스타일. 섹션별로 DARK / LIGHT / APPLY 구역이 나뉨 |
+| `css/site.css` | 모든 페이지 공통 스타일. 섹션별로 DARK / HOUSE / APPLY 구역이 나뉨 |
 | `js/main.js` | 히어로 헥스 덤프 생성, nonce 카운터, 모바일 메뉴 |
 | `js/apply.js` | 지원서 검증과 제출 |
 | `herotopia/` | 헤테로토피아 창업가 하우스 2027 입주자 모집 페이지(nonce.community/herotopia/). 따로 받은 완성본을 그대로 올린 독립 페이지라 사이트 공통 CSS·JS를 쓰지 않는다. 상대 경로를 쓰므로 `vercel.json`이 `/herotopia`를 `/herotopia/`로 넘긴다 |
@@ -31,9 +31,9 @@ python3 -m http.server 8000     # → http://localhost:8000
 - 크기를 바꿀 때는 세 구간을 모두 손본다. 한 구간만 고치면 다른 화면에서 어긋난다.
 
 ## 디자인 토큰
-- 메인·지원서(어두운 테마): 배경 `#000`, 본문 `#f2f2f2`, 보조 `#a6a6a6`, 선 `#1f1f1f`/`#3a3a3a`
-- 호점 페이지(밝은 테마): 배경 `#FAF9F6`, 글자 `#1A1A1A`, 보조 `#5C5C5C`, 선 `#C9C7C2`, 강조 빨강 `#B3261E`
-- 글꼴: 로고·히어로와 한글 제목·큰 숫자는 `Noto Serif KR` 600(`--serif-kr`, 로고와 같은 글꼴), 본문·레이블 한글은 `Asta Sans`(nonce.foundation과 같은 글꼴, `--sans`), 영문 어원 `EB Garamond`, 레이블 `IBM Plex Mono`(한글은 Asta Sans로 대체), 호점 페이지 영문 `Newsreader` / `Hanken Grotesk`
+- 모든 페이지(메인·호점·지원서) 같은 어두운 테마: 배경 `#000`, 본문 `#f2f2f2`, 보조 `#a6a6a6`, 선 `#1f1f1f`/`#3a3a3a`
+- 호점 페이지는 `body.dark.house`. 회사 로고는 흰색으로 반전해서 보여 준다(`filter: brightness(0) invert(1)`)
+- 글꼴: 로고·히어로와 한글 제목·큰 숫자는 `Noto Serif KR` 600(`--serif-kr`, 로고와 같은 글꼴), 본문·레이블 한글은 `Asta Sans`(nonce.foundation과 같은 글꼴, `--sans`), 영문 어원 `EB Garamond`, 레이블 `IBM Plex Mono`(한글은 Asta Sans로 대체)
 - 로고는 텍스트 "nonce" (Noto Serif KR 600). 이미지 로고 없음.
 
 ## 표기 규칙
