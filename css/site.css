@@ -80,25 +80,35 @@ body.dark ::selection { background: #fff; color: #000; }
 @media (min-width: 768px) and (max-width: 1023px) { .sec { padding: 100px 40px; } }
 @media (max-width: 767px) { .sec { padding: 72px 20px; } }
 
-/* etymology */
-.ety-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; padding-bottom: 24px; border-bottom: 1px solid #3a3a3a; }
-.ety-head h2 { margin: 0; font-family: var(--serif-en); font-weight: 400; font-size: 21px; letter-spacing: 0.02em; color: #d9d9d9; }
-.ety-row { display: flex; flex-wrap: wrap; gap: 10px 40px; padding: 36px 0; border-bottom: 1px solid #1f1f1f; }
-.ety-row .word { flex: 0 0 200px; font-family: var(--serif-en); font-weight: 500; font-size: clamp(34px, 3.4vw, 44px); line-height: 1.05; color: #fff; }
+/* etymology — a centred glossary column: words right-aligned on a vertical spine */
+.ety { max-width: 760px; }
+.ety-head { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; margin-bottom: clamp(56px, 7vw, 96px); }
+.ety-head h2 { margin: 0; font-family: var(--serif-en); font-weight: 400; font-size: clamp(24px, 2.6vw, 34px); letter-spacing: 0.01em; color: #fff; text-wrap: balance; }
+.ety-head .rule, .ety-close .rule { width: 72px; height: 1px; background: #fff; }
+.ety-head .rule { margin-top: 12px; }
+.ety-list { position: relative; padding: 8px 0; }
+.ety-list::before { content: ""; position: absolute; top: 0; bottom: 0; left: 172px; width: 1px; background: #3a3a3a; }
+.ety-row { display: grid; grid-template-columns: 144px minmax(0, 1fr); column-gap: 56px; align-items: baseline; padding: 30px 0; }
+.ety-row .word { text-align: right; font-family: var(--serif-en); font-weight: 500; font-size: clamp(30px, 2.8vw, 38px); line-height: 1.05; color: #fff; }
 .ety-row .word.it { font-style: italic; }
-.ety-row .body { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
-.ety-row .root { margin: 0; font-family: var(--sans); font-size: 18px; line-height: 1.7; color: #f2f2f2; }
-.ety-row .root i { font-family: var(--serif-en); font-size: 21px; }
-.ety-row .gloss { margin: 0; font-size: 16px; line-height: 1.85; color: #a6a6a6; }
-.ety-row .gloss i { font-family: var(--serif-en); font-size: 18px; color: #d9d9d9; }
-.ety-close { display: flex; flex-wrap: wrap; gap: 0 40px; padding-top: clamp(64px, 8vw, 96px); }
-.ety-close .spacer { flex: 0 0 200px; }
-.ety-close p { flex: 1 1 320px; min-width: 0; margin: 0; font-family: var(--serif-kr); font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.75; color: #fff; }
-@media (min-width: 768px) and (max-width: 1023px) { .ety-row .word { font-size: 36px; } .ety-close { padding-top: 72px; } .ety-close p { font-size: 26px; } }
+.ety-row .body { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ety-row .root { margin: 0; font-size: 17px; line-height: 1.7; color: #f2f2f2; }
+.ety-row .root i { font-family: var(--serif-en); font-size: 19px; }
+.ety-row .hist { margin: 0; font-size: 14.5px; line-height: 1.8; color: #8c8c8c; text-wrap: pretty; }
+.ety-row .hist i { font-family: var(--serif-en); font-size: 16px; color: #a6a6a6; }
+/* nonce's reading of the word, set apart from the dictionary lines */
+.ety-row .read { margin: 6px 0 0; padding-left: 14px; border-left: 1px solid #6e6e6e; font-family: var(--serif-kr); font-weight: 400; font-size: 16px; line-height: 1.75; color: #e6e6e6; }
+.ety-close { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: clamp(72px, 9vw, 120px); }
+.ety-close .rule { margin-bottom: clamp(32px, 4vw, 48px); }
+.ety-close p { margin: 0; font-family: var(--serif-kr); font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.75; color: #fff; }
+@media (min-width: 768px) and (max-width: 1023px) { .ety-close p { font-size: 26px; } }
 @media (max-width: 767px) {
-  .ety-row .word { font-size: 32px; }
-  .ety-row .root { font-size: 16px; } .ety-row .root i { font-size: 18px; } .ety-row .gloss { font-size: 15px; }
-  .ety-close { padding-top: 56px; } .ety-close p { font-size: 22px; }
+  .ety-list::before { left: 0; }
+  .ety-row { grid-template-columns: 1fr; row-gap: 12px; padding: 30px 0 30px 22px; }
+  .ety-row .word { text-align: left; font-size: 32px; }
+  .ety-row .root { font-size: 16px; } .ety-row .root i { font-size: 18px; }
+  .ety-row .hist { font-size: 14px; } .ety-row .read { font-size: 15px; }
+  .ety-close p { font-size: 21px; }
 }
 
 /* stats */
