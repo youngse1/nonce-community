@@ -68,6 +68,32 @@
   .e2-close p{font-size:21px}
   .pick{bottom:12px}.pick button{padding:0 12px}
 }
+/* C: mirrored on the page's centre axis */
+.ec-rows{position:relative;padding:8px 0}
+.ec-rows::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:#3a3a3a}
+.ec-row{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(48px,6vw,88px);align-items:baseline;padding:clamp(28px,3vw,40px) 0}
+.ec-body{position:relative}
+.ec-body::before{content:"";position:absolute;left:calc(clamp(48px,6vw,88px) / -2 - 3.5px);top:11px;width:7px;height:7px;background:#000;border:1px solid #8c8c8c;box-sizing:border-box}
+.ec-word{text-align:right;font-family:var(--serif-en);font-weight:500;font-size:clamp(34px,3.4vw,44px);line-height:1.05;color:#fff}
+.ec-word.it{font-style:italic}
+.ec-body{display:flex;flex-direction:column;gap:8px;max-width:440px}
+/* D: the current table in a centred column */
+.ed-col{max-width:820px}
+.ed-rows{border-top:1px solid #3a3a3a}
+.ed-row{display:grid;grid-template-columns:180px minmax(0,1fr);column-gap:40px;align-items:baseline;padding:32px 0;border-bottom:1px solid #1f1f1f}
+.ed-word{font-family:var(--serif-en);font-weight:500;font-size:clamp(32px,3vw,40px);line-height:1.05;color:#fff}
+.ed-word.it{font-style:italic}
+.ed-body{display:flex;flex-direction:column;gap:8px}
+@media (max-width:767px){
+  .ec-rows::before{left:0}
+  .ec-row{grid-template-columns:1fr;row-gap:12px;padding:28px 0 28px 24px}
+  .ec-body::before{display:none}
+  .ec-word{position:relative}
+  .ec-word::before{content:"";position:absolute;left:-27.5px;top:13px;width:7px;height:7px;background:#000;border:1px solid #8c8c8c;box-sizing:border-box}
+  .ec-word{text-align:left;font-size:32px}
+  .ed-row{grid-template-columns:1fr;row-gap:12px;padding:28px 0}
+  .ed-word{font-size:32px}
+}
 </style>
 </head>
 <body class="dark">
@@ -246,6 +272,60 @@
 <p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p>
 <p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p>
 </div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
+<section class="sec e2 ec" data-v="c" hidden aria-label="어원 (C안)"><div class="inner"><div class="e2-head">
+<span class="mono-label">0x00000001 — ETYMOLOGY</span>
+<h2 lang="en">nonce : Basecamp for Future Rebels</h2>
+</div><div class="ec-rows"><div class="ec-row">
+<span lang="en" class="ec-word it">nonce</span>
+<div class="ec-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div>
+</div>
+<div class="ec-row">
+<span lang="en" class="ec-word">Base</span>
+<div class="ec-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div>
+</div>
+<div class="ec-row">
+<span lang="en" class="ec-word">Camp</span>
+<div class="ec-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div>
+</div>
+<div class="ec-row">
+<span lang="en" class="ec-word">For</span>
+<div class="ec-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div>
+</div>
+<div class="ec-row">
+<span lang="en" class="ec-word">Future</span>
+<div class="ec-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div>
+</div>
+<div class="ec-row">
+<span lang="en" class="ec-word">Rebel</span>
+<div class="ec-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div>
+</div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
+<section class="sec e2 ed" data-v="d" hidden aria-label="어원 (D안)"><div class="inner ed-col"><div class="e2-head">
+<span class="mono-label">0x00000001 — ETYMOLOGY</span>
+<h2 lang="en">nonce : Basecamp for Future Rebels</h2>
+</div><div class="ed-rows"><div class="ed-row">
+<span lang="en" class="ed-word it">nonce</span>
+<div class="ed-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div>
+</div>
+<div class="ed-row">
+<span lang="en" class="ed-word">Base</span>
+<div class="ed-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div>
+</div>
+<div class="ed-row">
+<span lang="en" class="ed-word">Camp</span>
+<div class="ed-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div>
+</div>
+<div class="ed-row">
+<span lang="en" class="ed-word">For</span>
+<div class="ed-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div>
+</div>
+<div class="ed-row">
+<span lang="en" class="ed-word">Future</span>
+<div class="ed-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div>
+</div>
+<div class="ed-row">
+<span lang="en" class="ed-word">Rebel</span>
+<div class="ed-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div>
+</div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
 
 <section class="stats-sec" aria-label="숫자로 보는 논스">
 <div class="stats">
@@ -359,8 +439,10 @@
 <script src="js/main.js" defer></script>
 <div class="pick" role="group" aria-label="어원 디자인 비교">
 <button type="button" data-v="now" aria-pressed="true">지금</button>
-<button type="button" data-v="a" aria-pressed="false">A · 블록 체인</button>
-<button type="button" data-v="b" aria-pressed="false">B · 여섯 칸</button>
+<button type="button" data-v="a" aria-pressed="false" title="블록 체인">A</button>
+<button type="button" data-v="b" aria-pressed="false" title="여섯 칸">B</button>
+<button type="button" data-v="c" aria-pressed="false">C · 가운데 축</button>
+<button type="button" data-v="d" aria-pressed="false">D · 가운데 단</button>
 </div>
 <script>
 (function(){var bs=document.querySelectorAll('.pick button'),ss=document.querySelectorAll('section[data-v]');
