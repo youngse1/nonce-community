@@ -155,6 +155,8 @@ a.bmap-pin::before { content: ""; position: absolute; inset: -6px; }
   .bmap-label { opacity: 1; z-index: 2; }
 }
 @media (prefers-reduced-motion: reduce) { .bmap-pin > img, .bmap-label { transition: none; } }
+/* phones get the pre-drawn colored map (the same picture nonce.foundation shows on mobile) instead of the flag layer */
+@media (max-width: 767px) { .bmap-pin { display: none; } }
 .map figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: #8c8c8c; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px 24px; }
 .card { display: flex; flex-direction: column; gap: 14px; color: inherit !important; min-width: 0; }
