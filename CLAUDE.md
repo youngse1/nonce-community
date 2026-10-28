@@ -37,7 +37,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 - 로고는 텍스트 "nonce" (Noto Serif KR 600). 이미지 로고 없음.
 
 ## 표기 규칙
-- 이름은 "nonce community / Nonce Community". "nonce foundation"은 쓰지 않는다.
+- 이름은 항상 소문자 "nonce" / "nonce community" (호점 이름도 "nonce Genesis"처럼). 대문자 레이블(NONCE COMMUNITY)은 예외. "nonce foundation"은 쓰지 않는다.
 - 연락처: hello@nonce.community, 서울특별시 강남구 봉은사로 22길 45-9
 - 호점 표기: 제네시스(1호점) · 라이트하우스(2호점) · 헤테로토피아(3호점) · 사피엔스(前 4호점) · 이머전하우스(現 4호점) · 오호라(5호점). "이머젼"이 아니라 "이머전".
 - 메인 숫자: 2018(제네시스 1호점 오픈 2018년 9월) · 850+ 멤버 · 149개 기업 · 9년. 숫자 위 16진수 표기(0x07E2 등)도 함께 바꾼다.
