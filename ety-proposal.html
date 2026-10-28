@@ -139,6 +139,34 @@
   .ef-addr{grid-area:addr;font-size:11px}.ef-hex{grid-area:hex;font-size:11px}
   .ef-word{grid-area:word;font-size:32px;margin-top:4px}.ef-body{grid-area:body}
 }
+/* G: huge ghost word behind each row */
+.eg-rows{border-top:1px solid #3a3a3a}
+.eg-row{position:relative;overflow:hidden;display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:40px;align-items:baseline;padding:clamp(44px,5vw,64px) 0;border-bottom:1px solid #1f1f1f}
+.eg-ghost{position:absolute;right:-.02em;top:50%;transform:translateY(-50%);font-family:var(--serif-en);font-weight:500;font-size:clamp(96px,10vw,148px);line-height:.8;letter-spacing:-.02em;color:#141414;white-space:nowrap;pointer-events:none;user-select:none}
+.eg-ghost.it{font-style:italic}
+.eg-word,.eg-body{position:relative}
+.eg-word{font-family:var(--serif-en);font-weight:500;font-size:clamp(34px,3.4vw,44px);line-height:1.05;color:#fff}
+.eg-word.it{font-style:italic}
+.eg-body{display:flex;flex-direction:column;gap:8px}
+/* H: the hero's phrase as a pinned header that follows the reader */
+.eh-bar{position:sticky;top:0;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 0 26px;margin-bottom:8px;background:#000;border-bottom:1px solid #3a3a3a;text-align:center}
+.eh-phrase{margin:0 -.32em 0 0;font-family:var(--serif-kr);font-weight:400;font-size:clamp(15px,1.9vw,26px);letter-spacing:.32em;text-transform:uppercase;color:#4a4a4a;text-wrap:balance}
+.eh-phrase span{transition:color .25s}
+.eh-phrase span.on{color:#fff}
+.eh-row{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:40px;align-items:baseline;padding:36px 0;border-bottom:1px solid #1f1f1f}
+.eh-word{font-family:var(--serif-en);font-weight:500;font-size:clamp(34px,3.4vw,44px);line-height:1.05;color:#5a5a5a;transition:color .25s}
+.eh-word.it{font-style:italic}
+.eh-row.on .eh-word{color:#fff}
+.eh-body{display:flex;flex-direction:column;gap:8px}
+@media (max-width:767px){
+  .eg-row{grid-template-columns:1fr;row-gap:12px;padding:40px 0}
+  .eg-ghost{font-size:88px;top:auto;bottom:18px;transform:none}
+  .eg-word{font-size:32px}
+  .eh-bar{padding:18px 0 16px;gap:10px}
+  .eh-phrase{font-size:12px;letter-spacing:.18em;margin-right:-.18em;line-height:1.7}
+  .eh-row{grid-template-columns:1fr;row-gap:12px;padding:28px 0}
+  .eh-word{font-size:32px}
+}
 </style>
 </head>
 <body class="dark">
@@ -376,6 +404,11 @@
 <span class="mono-label">0x00000001 — ETYMOLOGY</span>
 <h2 lang="en">nonce : Basecamp for Future Rebels</h2>
 </div><div class="ef-cols" aria-hidden="true"><span>OFFSET</span><span>WORD</span><span>ROOT</span><span>ASCII</span></div><div class="ef-rows"><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0000</span><span lang="en" class="ef-word it">nonce</span><div class="ef-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div><span class="ef-hex" aria-hidden="true">6E 6F 6E 63 65</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0010</span><span lang="en" class="ef-word">Base</span><div class="ef-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div><span class="ef-hex" aria-hidden="true">42 61 73 65</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0020</span><span lang="en" class="ef-word">Camp</span><div class="ef-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div><span class="ef-hex" aria-hidden="true">43 61 6D 70</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0030</span><span lang="en" class="ef-word">For</span><div class="ef-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div><span class="ef-hex" aria-hidden="true">46 6F 72</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0040</span><span lang="en" class="ef-word">Future</span><div class="ef-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div><span class="ef-hex" aria-hidden="true">46 75 74 75 72 65</span></div><div class="ef-row"><span class="ef-addr" aria-hidden="true">0x0050</span><span lang="en" class="ef-word">Rebel</span><div class="ef-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div><span class="ef-hex" aria-hidden="true">52 65 62 65 6C</span></div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
+<section class="sec e2 eg" data-v="g" hidden aria-label="어원 (G안)"><div class="inner"><div class="e2-head">
+<span class="mono-label">0x00000001 — ETYMOLOGY</span>
+<h2 lang="en">nonce : Basecamp for Future Rebels</h2>
+</div><div class="eg-rows"><div class="eg-row"><span class="eg-ghost it" aria-hidden="true">nonce</span><span lang="en" class="eg-word it">nonce</span><div class="eg-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div></div><div class="eg-row"><span class="eg-ghost" aria-hidden="true">Base</span><span lang="en" class="eg-word">Base</span><div class="eg-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div></div><div class="eg-row"><span class="eg-ghost" aria-hidden="true">Camp</span><span lang="en" class="eg-word">Camp</span><div class="eg-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div></div><div class="eg-row"><span class="eg-ghost" aria-hidden="true">For</span><span lang="en" class="eg-word">For</span><div class="eg-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div></div><div class="eg-row"><span class="eg-ghost" aria-hidden="true">Future</span><span lang="en" class="eg-word">Future</span><div class="eg-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div></div><div class="eg-row"><span class="eg-ghost" aria-hidden="true">Rebel</span><span lang="en" class="eg-word">Rebel</span><div class="eg-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div></div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
+<section class="sec e2 eh" data-v="h" hidden aria-labelledby="eh-title"><div class="inner"><div class="eh-bar"><span class="mono-label">0x00000001 — ETYMOLOGY</span><h2 id="eh-title" class="sr-only">nonce : Basecamp for Future Rebels</h2><p class="eh-phrase" lang="en"><span data-i="0">nonce</span> : <span data-i="1">Base</span><span data-i="2">camp</span> <span data-i="3">for</span> <span data-i="4">Future</span> <span data-i="5">Rebel</span>s</p></div><div class="eh-rows"><div class="eh-row" data-i="0"><span lang="en" class="eh-word it">nonce</span><div class="eh-body"><p class="e2-root">중세 영어 <i lang="enm">for þan anes</i>, “그 한 번을 위하여.”</p><p class="e2-gloss">비트코인에서는 단 한 번만 쓰이는 수.<br>정답이 나올 때까지 바꾸고, 실패하고, 다시 넣는 숫자.</p></div></div><div class="eh-row" data-i="1"><span lang="en" class="eh-word">Base</span><div class="eh-body"><p class="e2-root">그리스어 <i lang="grc-Latn">bainein</i>, “발을 딛다.”</p><p class="e2-gloss">서기 위해 디디는 자리.</p></div></div><div class="eh-row" data-i="2"><span lang="en" class="eh-word">Camp</span><div class="eh-body"><p class="e2-root">라틴어 <i lang="la">campus</i>, “들판.”</p><p class="e2-gloss">사람들이 모여 진을 치던 곳.</p></div></div><div class="eh-row" data-i="3"><span lang="en" class="eh-word">For</span><div class="eh-body"><p class="e2-root">인도유럽어 <i>per-</i>, “앞에.”</p><p class="e2-gloss">누군가의 앞에 서서, 그를 위하여.</p></div></div><div class="eh-row" data-i="4"><span lang="en" class="eh-word">Future</span><div class="eh-body"><p class="e2-root">라틴어 <i lang="la">futurus</i>, “장차 있게 될 것.”</p><p class="e2-gloss"><i lang="en">be</i>와 같은 뿌리. 아직 자라나는 중인 존재.</p></div></div><div class="eh-row" data-i="5"><span lang="en" class="eh-word">Rebel</span><div class="eh-body"><p class="e2-root">라틴어 <i lang="la">re- + bellum</i>, “다시 싸우다.”</p><p class="e2-gloss">정복당한 뒤에도 굴복하지 않고 다시 일어선 사람들.</p></div></div></div><div class="e2-close"><div class="e2-rule" aria-hidden="true"></div><p>앞으로 자라날 세상을 위해,<br>다시 일어서는 사람들이 발 딛고 모이는 들판.</p></div></div></section>
 
 <section class="stats-sec" aria-label="숫자로 보는 논스">
 <div class="stats">
@@ -493,14 +526,23 @@
 <button type="button" data-v="b" aria-pressed="false" title="여섯 칸">B</button>
 <button type="button" data-v="c" aria-pressed="false" title="가운데 축">C</button>
 <button type="button" data-v="d" aria-pressed="false" title="가운데 단">D</button>
-<button type="button" data-v="e" aria-pressed="false">E<span class="nm"> · 펼침면</span></button>
-<button type="button" data-v="f" aria-pressed="false">F<span class="nm"> · 헥스 덤프</span></button>
+<button type="button" data-v="e" aria-pressed="false" title="펼침면">E</button>
+<button type="button" data-v="f" aria-pressed="false" title="헥스 덤프">F</button>
+<button type="button" data-v="g" aria-pressed="false">G<span class="nm"> · 큰 단어</span></button>
+<button type="button" data-v="h" aria-pressed="false">H<span class="nm"> · 따라오는 문장</span></button>
 </div>
 <script>
 (function(){var bs=document.querySelectorAll('.pick button'),ss=document.querySelectorAll('section[data-v]');
 function go(v){ss.forEach(function(s){s.hidden=s.dataset.v!==v});bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v)})}
 bs.forEach(function(b){b.addEventListener('click',function(){var top=document.querySelector('section[data-v]:not([hidden])').getBoundingClientRect().top;go(b.dataset.v);var s=document.querySelector('section[data-v="'+b.dataset.v+'"]');if(top<innerHeight)return;s.scrollIntoView({behavior:'instant'})})});
 var q=new URLSearchParams(location.search).get('v');if(q)go(q);})();
+</script>
+<script>
+// H: light up the word being read in the pinned phrase
+(function(){var rows=document.querySelectorAll('.eh-row'),spans=document.querySelectorAll('.eh-phrase span');
+function set(i){rows.forEach(function(r){r.classList.toggle('on',r.dataset.i===i)});spans.forEach(function(s){s.classList.toggle('on',s.dataset.i===i)})}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(e.target.dataset.i)})},{rootMargin:'-45% 0px -45% 0px'});
+rows.forEach(function(r){io.observe(r)});set('0');})();
 </script>
 </body>
 </html>
