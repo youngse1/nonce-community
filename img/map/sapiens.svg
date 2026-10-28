@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" height="43.8771" overflow="visible" preserveAspectRatio="none" style="display: block;" viewBox="0 0 74.6635 43.8771" width="74.6635">
+<g id="Mask group">
+<g filter="url(#filter0_f_0_1584)" id="Vector 4">
+<path d="M60.3583 41.8461L72.6443 31.2093L71.4157 16.3176L56.9797 12.9746L56.3654 5.37688L38.5507 2.03386L33.6364 5.9847V8.71989L19.2004 4.46514H12.7502L2 12.3668V19.3568L3.2286 19.9646L2.6143 23.9154L2.92145 28.778L14.286 33.6405L17.0503 32.7288L31.4863 35.7679L31.1792 38.5031H39.7793L60.3583 41.8461Z" stroke="var(--stroke-0, #302F2E)"/>
+</g>
+</g>
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="43.8771" id="filter0_f_0_1584" width="74.6635" x="5.96046e-08" y="1.19209e-07">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/>
+<feGaussianBlur result="effect1_foregroundBlur_0_1584" stdDeviation="0.75"/>
+</filter>
+</defs>
+</svg>

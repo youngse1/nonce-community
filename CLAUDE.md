@@ -27,6 +27,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 | `basecamp/` | 데스커 베이스캠프 with nonce 27년 멤버 모집 페이지(nonce.community/basecamp/). `herotopia/`와 같은 방식의 독립 페이지(경로도 `/basecamp/img/…` 절대 경로) |
 | `apply-receiver.gs` | 지원서 → Google 스프레드시트 수신용 Apps Script (사이트에서는 쓰지 않음) |
 | `img/` | 이미지. 건물 일러스트는 WebP, 사진은 1600px 이하 JPG |
+| `img/map/` | 메인 베이스캠프 지도: 스케치(`base.jpg`), 깃발(`flag.png`), 호점별 윤곽선 SVG. nonce.foundation/about-nonce 지도와 같은 원본·위치를 쓴다. 마우스를 올리면 깃발·윤곽선 대신 `img/<호점>/building.webp`와 이름이 뜨고, 누르면 호점 페이지로 간다. 터치 기기에서는 건물과 이름이 늘 보인다 |
 
 ## 반응형 규칙
 - 데스크톱 ≥1024px: 1440 기준 시안. `clamp()`로 유동적으로 줄어든다.
