@@ -293,7 +293,7 @@ a.tab:hover { background: #141414; color: #fff !important; }
 .apply-main.apply-body { padding-top: 0; }
 /* shown in place of the form while applications are closed */
 .closed { margin-top: clamp(48px, 6vw, 72px); padding: clamp(32px, 4vw, 48px); border: 1px solid #3a3a3a; display: flex; flex-direction: column; gap: 16px; }
-.closed h2 { margin: 0; font-family: var(--serif-kr); font-weight: 600; font-size: clamp(24px, 2.6vw, 30px); line-height: 1.4; color: #fff; }
+.closed h2 { margin: 0; font-family: var(--serif-kr); font-weight: 600; font-size: clamp(24px, 2.6vw, 30px); line-height: 1.4; color: #fff; text-wrap: balance; }
 .closed p { margin: 0; font-size: 17px; line-height: 1.8; color: #c4c4c4; }
 .closed .note { font-size: 15px; color: #8c8c8c; }
 .closed .note a { color: #d9d9d9; text-decoration: underline; text-underline-offset: 3px; }
