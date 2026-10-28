@@ -10,7 +10,7 @@ python3 -m http.server 8000     # → http://localhost:8000
 수정 후에는 반드시 세 폭(1440 · 768 · 375)에서 확인한다. 가로 스크롤이 생기면 안 된다.
 
 ## 주소
-- `vercel.json`의 `cleanUrls`로 주소에 `.html`을 붙이지 않는다: `/genesis`, `/apply` 등. 예전 `/genesis.html` 주소는 Vercel이 새 주소로 넘긴다.
+- `vercel.json`의 `cleanUrls`로 주소에 `.html`을 붙이지 않고, `trailingSlash: false`로 끝의 `/`도 붙이지 않는다: `/genesis`, `/apply`, `/herotopia`, `/basecamp`. 예전 `/genesis.html`, `/basecamp/` 주소는 Vercel이 새 주소로 넘긴다.
 - 페이지끼리 링크는 `/genesis`처럼 루트 기준으로 쓰고, 메인은 `/`. canonical·og:url·`sitemap.xml`도 같은 주소를 쓴다.
 - `python3 -m http.server`는 `.html` 없는 주소를 모르므로 로컬에서 링크를 누르면 404가 난다. 로컬에서는 `/genesis.html`처럼 파일 이름으로 열거나 Vercel 미리보기로 확인한다.
 
@@ -23,8 +23,8 @@ python3 -m http.server 8000     # → http://localhost:8000
 | `css/site.css` | 모든 페이지 공통 스타일. 섹션별로 DARK / HOUSE / APPLY 구역이 나뉨 |
 | `js/main.js` | 히어로 헥스 덤프 생성, nonce 카운터, 모바일 메뉴 |
 | `js/apply.js` | 지원서 검증과 제출 |
-| `herotopia/` | 헤테로토피아 창업가 하우스 2027 입주자 모집 페이지(nonce.community/herotopia/). 따로 받은 완성본을 그대로 올린 독립 페이지라 사이트 공통 CSS·JS를 쓰지 않는다. 상대 경로를 쓰므로 `vercel.json`이 `/herotopia`를 `/herotopia/`로 넘긴다 |
-| `basecamp/` | 데스커 베이스캠프 with nonce 27년 멤버 모집 페이지(nonce.community/basecamp/). `herotopia/`와 같은 방식의 독립 페이지 |
+| `herotopia/` | 헤테로토피아 창업가 하우스 2027 입주자 모집 페이지(nonce.community/herotopia/). 따로 받은 완성본을 그대로 올린 독립 페이지라 사이트 공통 CSS·JS를 쓰지 않는다. 이미지·영상·글꼴은 `/herotopia/img/…`처럼 절대 경로로 쓴다(주소 끝에 `/`가 없어도 깨지지 않게) |
+| `basecamp/` | 데스커 베이스캠프 with nonce 27년 멤버 모집 페이지(nonce.community/basecamp/). `herotopia/`와 같은 방식의 독립 페이지(경로도 `/basecamp/img/…` 절대 경로) |
 | `apply-receiver.gs` | 지원서 → Google 스프레드시트 수신용 Apps Script (사이트에서는 쓰지 않음) |
 | `img/` | 이미지. 건물 일러스트는 WebP, 사진은 1600px 이하 JPG |
 
