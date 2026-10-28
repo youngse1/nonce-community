@@ -9,6 +9,11 @@ python3 -m http.server 8000     # → http://localhost:8000
 ```
 수정 후에는 반드시 세 폭(1440 · 768 · 375)에서 확인한다. 가로 스크롤이 생기면 안 된다.
 
+## 주소
+- `vercel.json`의 `cleanUrls`로 주소에 `.html`을 붙이지 않는다: `/genesis`, `/apply` 등. 예전 `/genesis.html` 주소는 Vercel이 새 주소로 넘긴다.
+- 페이지끼리 링크는 `/genesis`처럼 루트 기준으로 쓰고, 메인은 `/`. canonical·og:url·`sitemap.xml`도 같은 주소를 쓴다.
+- `python3 -m http.server`는 `.html` 없는 주소를 모르므로 로컬에서 링크를 누르면 404가 난다. 로컬에서는 `/genesis.html`처럼 파일 이름으로 열거나 Vercel 미리보기로 확인한다.
+
 ## 구조
 | 파일 | 내용 |
 |---|---|

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://nonce.community/</loc></url>
-<url><loc>https://nonce.community/genesis.html</loc></url>
-<url><loc>https://nonce.community/lighthouse.html</loc></url>
-<url><loc>https://nonce.community/heterotopia.html</loc></url>
-<url><loc>https://nonce.community/sapiens.html</loc></url>
-<url><loc>https://nonce.community/immersion.html</loc></url>
-<url><loc>https://nonce.community/ohora.html</loc></url>
-<url><loc>https://nonce.community/apply.html</loc></url>
+<url><loc>https://nonce.community/genesis</loc></url>
+<url><loc>https://nonce.community/lighthouse</loc></url>
+<url><loc>https://nonce.community/heterotopia</loc></url>
+<url><loc>https://nonce.community/sapiens</loc></url>
+<url><loc>https://nonce.community/immersion</loc></url>
+<url><loc>https://nonce.community/ohora</loc></url>
+<url><loc>https://nonce.community/apply</loc></url>
 <url><loc>https://nonce.community/herotopia/</loc></url>
 <url><loc>https://nonce.community/basecamp/</loc></url>
 </urlset>
