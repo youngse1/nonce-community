@@ -357,6 +357,12 @@ form.apply .hint { margin: 0; font-size: 15px; line-height: 1.7; color: #a6a6a6;
 .spaces.bad .space { border-color: #ff8a80; }
 .space input { margin: 4px 0 0; width: 18px; height: 18px; accent-color: #fff; }
 .space .tx { display: flex; flex-direction: column; gap: 4px; } .space .a { font-size: 17px; color: #fff; } .space .b { font-size: 14px; color: #a6a6a6; }
+.f .label { font-size: 15px; line-height: 1.5; color: #d9d9d9; }
+.spaces.rooms { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.count { font-family: var(--mono); font-size: 12px; color: #8c8c8c; align-self: flex-end; }
+.count.short { color: #ffb4ab; }
+.agree small { display: block; margin-top: 6px; font-size: 13px; line-height: 1.7; color: #8c8c8c; }
+.apply-intro p a, form.apply .hint a { color: #d9d9d9; text-decoration: underline; text-underline-offset: 3px; }
 .agree { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; line-height: 1.7; color: #c4c4c4; cursor: pointer; }
 .agree input { margin: 5px 0 0; width: 18px; height: 18px; accent-color: #fff; flex: none; }
 .ok { margin: 0; padding: 14px 16px; border: 1px solid #fff; color: #fff; font-size: 15px; line-height: 1.7; }
