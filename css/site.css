@@ -171,6 +171,10 @@ a.bmap-pin::before { content: ""; position: absolute; inset: -6px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { padding: 4px 14px; border-radius: 999px; border: 1px solid #6e6e6e; color: #e6e6e6; font-size: 14px; }
 .tag.solid { background: #fff; border-color: #fff; color: #000; }
+/* application status (same open/closed set as the /apply house picker) */
+.tag.st.on { border-color: #fff; color: #fff; }
+.tag.st.on::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: #fff; vertical-align: 0.15em; }
+.tag.st.off { border-color: #3a3a3a; color: #6e6e6e; }
 @media (min-width: 768px) and (max-width: 1023px) { .camps-head h2 { font-size: 28px; } }
 @media (max-width: 767px) {
   .camps-head h2 { font-size: 24px; }
@@ -231,6 +235,9 @@ a.tab:hover { background: #141414; color: #fff !important; }
 .itable dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; color: #8c8c8c; }
 .itable dd { margin: 0; font-size: 17px; line-height: 1.55; text-align: right; color: #f2f2f2; }
 .itable .tm { display: none; }
+.itable .st.off { color: #6e6e6e; }
+.itable a.st.on { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #6e6e6e; }
+.itable a.st.on:hover { text-decoration-color: #fff; }
 .lt-body { padding: 96px var(--side) 0; }
 .lsec { max-width: 1024px; margin: 0 auto; padding-bottom: 120px; display: flex; flex-wrap: wrap; gap: 24px 0; }
 .lsec > h2 { flex: 0 0 312px; margin: 0; font-family: var(--serif-en); font-weight: 400; font-size: 42px; line-height: 1.1; color: #fff; }
