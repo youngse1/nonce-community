@@ -2,6 +2,25 @@
 // Submissions go straight into the heterotopia Google Form (form's data-endpoint = …/formResponse),
 // so they land in the same responses sheet as people who apply on the Google Form itself.
 // The ENTRY ids below must match that form's questions; if a question changes there, update them here.
+// House picker: a.pick.on opens the form section; /apply?house=heterotopia (or #apply-form) opens it on load
+(function () {
+  var section = document.getElementById('apply-form');
+  var open = document.querySelector('.pick.on');
+  if (!section || !open) return;
+  function show(scroll) {
+    section.hidden = false;
+    open.setAttribute('aria-expanded', 'true');
+    if (scroll) section.scrollIntoView({ block: 'start' }); // smooth via html { scroll-behavior }
+  }
+  open.addEventListener('click', function (e) {
+    e.preventDefault();
+    history.replaceState(null, '', open.getAttribute('href'));
+    show(true);
+  });
+  var q = new URLSearchParams(location.search).get('house');
+  if (q === open.getAttribute('data-house') || location.hash === '#apply-form') show(true);
+})();
+
 (function () {
   var form = document.getElementById('apply');
   if (!form) return;

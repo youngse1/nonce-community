@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
-<title>헤테로토피아 입주 지원 | nonce</title>
-<meta name="description" content="논스 창업가 하우스 헤테로토피아(3호점) 2027년 입주 지원서. 2026년 11월 11일(수) 자정까지 접수합니다.">
+<title>베이스캠프 입주 지원 | nonce</title>
+<meta name="description" content="논스 베이스캠프 호점별 입주 지원. 지금은 3호점 헤테로토피아가 2027년 입주자를 2026년 11월 11일(수) 자정까지 모집합니다.">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://nonce.community/apply">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="nonce community">
-<meta property="og:title" content="헤테로토피아 입주 지원 | nonce">
-<meta property="og:description" content="논스 창업가 하우스 헤테로토피아(3호점) 2027년 입주 지원서. 2026년 11월 11일(수) 자정까지 접수합니다.">
+<meta property="og:title" content="베이스캠프 입주 지원 | nonce">
+<meta property="og:description" content="논스 베이스캠프 호점별 입주 지원. 지금은 3호점 헤테로토피아가 2027년 입주자를 2026년 11월 11일(수) 자정까지 모집합니다.">
 <meta property="og:url" content="https://nonce.community/apply">
 <meta property="og:image" content="https://nonce.community/img/cards/heterotopia.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,18 +34,36 @@
 <div class="apply-main apply-head">
 <div class="apply-intro">
 <span class="mono-label">0x00000005 — APPLY</span>
-<h1>헤테로토피아 입주 지원</h1>
-<p>논스 창업가 하우스 강남점, 3호점 헤테로토피아에서 2027년을 함께할 창업가를 찾습니다. 세 가지 인재상 — 진정성, 도전, 정 — 을 서류와 인터뷰로 함께 확인합니다. 지원은 2026년 11월 11일(수) 자정까지 받고, 접수 순서대로 심사합니다. 자세한 안내는 <a href="/heterotopia-2027">모집 페이지</a>에서 볼 수 있습니다.</p>
+<h1>베이스캠프 입주 지원</h1>
+<p>지원할 호점을 골라 주세요. 지금은 3호점 헤테로토피아만 2027년 입주자를 모집하고 있습니다. 세 가지 인재상 — 진정성, 도전, 정 — 을 서류와 인터뷰로 함께 확인합니다.</p>
 <ol class="steps">
-<li><span class="k">01</span><span class="t">지원서 제출</span></li>
-<li><span class="k">02</span><span class="t">서류 심사</span></li>
-<li><span class="k">03</span><span class="t">인터뷰</span></li>
+<li><span class="k">01</span><span class="t">호점 선택</span></li>
+<li><span class="k">02</span><span class="t">지원서 제출</span></li>
+<li><span class="k">03</span><span class="t">서류 · 인터뷰 심사</span></li>
 </ol>
 </div>
 </div>
 
 <div class="apply-main apply-body">
-<!-- 지원을 닫을 때: form 앞에 .closed 안내 블록을 넣고 form에 hidden을 건다 (CLAUDE.md 지원서 참고) -->
+<!-- 호점별 지원 상태: 지원을 받는 호점은 a.pick.on(누르면 아래 지원서가 열림), 받지 않는 호점은 div.pick.off -->
+<section class="picks" aria-labelledby="pick-title">
+<h2 class="pick-h" id="pick-title">지원할 호점</h2>
+<ul class="pick-list">
+<li><div class="pick off" aria-disabled="true"><img src="img/cards/genesis.jpg" alt="" width="480" height="300" loading="lazy" decoding="async"><span class="num">1호점</span><span class="nm">논스 제네시스</span><span lang="en" class="en">nonce Genesis</span><span class="st">지원 불가</span></div></li>
+<li><div class="pick off" aria-disabled="true"><img src="img/cards/lighthouse.jpg" alt="" width="480" height="300" loading="lazy" decoding="async"><span class="num">2호점</span><span class="nm">논스 라이트하우스</span><span lang="en" class="en">nonce Lighthouse</span><span class="st">지원 불가</span></div></li>
+<li><a class="pick on" href="/apply?house=heterotopia" data-house="heterotopia" aria-controls="apply-form" aria-expanded="false"><img src="img/cards/heterotopia.jpg" alt="" width="480" height="300" loading="lazy" decoding="async"><span class="num">3호점</span><span class="nm">논스 헤테로토피아</span><span lang="en" class="en">nonce Heterotopia</span><span class="st">지원 가능</span><span class="when">2027년 입주 · 11월 11일(수) 자정 마감</span></a></li>
+<li><div class="pick off" aria-disabled="true"><img src="img/cards/sapiens.jpg" alt="" width="480" height="300" loading="lazy" decoding="async"><span class="num">前 4호점</span><span class="nm">논스 사피엔스</span><span lang="en" class="en">nonce Sapiens</span><span class="st">지원 불가</span></div></li>
+<li><div class="pick off" aria-disabled="true"><img src="img/cards/immersion.jpg" alt="" width="480" height="300" loading="lazy" decoding="async"><span class="num">現 4호점</span><span class="nm">논스 이머전하우스</span><span lang="en" class="en">nonce Immersion House</span><span class="st">지원 불가</span></div></li>
+<li><div class="pick off" aria-disabled="true"><img src="img/cards/ohora.jpg" alt="" width="480" height="300" loading="lazy" decoding="async"><span class="num">5호점</span><span class="nm">논스 오호라</span><span lang="en" class="en">nonce Ohora</span><span class="st">지원 불가</span></div></li>
+</ul>
+</section>
+<!-- 지원을 닫을 때: 헤테로토피아를 div.pick.off로 바꾸고 #apply-form 섹션을 지운다 (CLAUDE.md 지원서 참고) -->
+<section class="apply-form" id="apply-form" aria-labelledby="form-title" hidden>
+<div class="form-h">
+<span class="mono-label">0x03 — HETEROTOPIA</span>
+<h2 id="form-title">헤테로토피아 2027 입주 지원서</h2>
+<p>논스 창업가 하우스 강남점, 3호점 헤테로토피아에서 2027년을 함께할 창업가를 찾습니다. 지원은 2026년 11월 11일(수) 자정까지 받고, 접수 순서대로 심사합니다. 자세한 안내는 <a href="/heterotopia-2027">모집 페이지</a>에서 볼 수 있습니다.</p>
+</div>
 <!-- 제출은 헤테로토피아 구글 폼(2027년 논스 창업가 하우스 지원)으로 바로 들어간다. 질문을 바꾸면 구글 폼과 js/apply.js의 entry 번호도 맞춘다 -->
 <form class="apply" id="apply" novalidate aria-label="헤테로토피아 입주 지원서" data-endpoint="https://docs.google.com/forms/d/e/1FAIpQLSd5_glzqTEJ99tfngz6-IK51DkLlD-T8R9kmYJo84pKm2mRUQ/formResponse">
 <fieldset>
@@ -127,6 +145,7 @@
 <button type="submit" class="submit" id="submit">지원서 제출</button>
 </fieldset>
 </form>
+</section>
 </div>
 </main>
 <footer class="site-footer">

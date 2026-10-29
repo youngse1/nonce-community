@@ -335,6 +335,29 @@ a.tab:hover { background: #141414; color: #fff !important; }
 .steps li { padding: 16px 12px; display: flex; flex-direction: column; gap: 4px; border-left: 1px solid #1f1f1f; }
 .steps li:first-child { padding-left: 0; border-left: 0; }
 .steps .k { font-family: var(--mono); font-size: 12px; color: #8c8c8c; } .steps .t { font-size: 15px; color: #fff; }
+/* house picker: a.pick.on opens the form below, div.pick.off is not taking applications */
+.picks { margin-top: clamp(48px, 6vw, 72px); display: flex; flex-direction: column; gap: 24px; }
+.pick-h { margin: 0; font-family: var(--serif-kr); font-weight: 600; font-size: 22px; color: #fff; }
+.pick-list { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pick { height: 100%; display: flex; flex-direction: column; gap: 4px; padding: 0 0 16px; border: 1px solid #1f1f1f; color: inherit !important; }
+.pick img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 10px; }
+.pick .num, .pick .nm, .pick .en, .pick .st, .pick .when { padding: 0 14px; }
+.pick .num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: #8c8c8c; }
+.pick .nm { font-size: 16px; font-weight: 500; color: #fff; }
+.pick .en { font-family: var(--serif-en); font-style: italic; font-size: 14px; color: #8c8c8c; }
+.pick .st { align-self: flex-start; margin: 10px 14px 0; padding: 4px 10px; font-size: 13px; line-height: 1.4; border: 1px solid #3a3a3a; color: #8c8c8c; }
+.pick .when { font-size: 13px; line-height: 1.5; color: #c4c4c4; margin-top: 6px; }
+.pick.off img { filter: grayscale(1); opacity: .35; }
+.pick.off .nm { color: #8c8c8c; }
+.pick.on { border-color: #3a3a3a; cursor: pointer; transition: border-color .2s, background .2s; }
+.pick.on:hover, .pick.on[aria-expanded="true"] { border-color: #fff; background: #0f0f0f; }
+.pick.on .st { background: #fff; border-color: #fff; color: #000; font-weight: 500; }
+.apply-form { display: flex; flex-direction: column; gap: 48px; scroll-margin-top: 24px; }
+.apply-form[hidden] { display: none; }
+.form-h { padding-top: 40px; border-top: 1px solid #3a3a3a; display: flex; flex-direction: column; gap: 16px; }
+.form-h h2 { margin: 0; font-family: var(--serif-kr); font-weight: 600; font-size: clamp(26px, 3vw, 34px); line-height: 1.35; color: #fff; }
+.form-h p { margin: 0; font-size: 17px; line-height: 1.8; color: #c4c4c4; }
+.form-h p a { color: #d9d9d9; text-decoration: underline; text-underline-offset: 3px; }
 form.apply { display: flex; flex-direction: column; gap: 48px; }
 form.apply fieldset { margin: 0; padding: 40px 0 0; border: 0; border-top: 1px solid #1f1f1f; display: flex; flex-direction: column; gap: 28px; min-width: 0; }
 form.apply legend { padding: 0; float: left; width: 100%; display: flex; align-items: baseline; gap: 16px; }
@@ -374,6 +397,10 @@ form.apply .hint { margin: 0; font-size: 15px; line-height: 1.7; color: #a6a6a6;
 @media (min-width: 768px) and (max-width: 1023px) { .apply-main h1 { font-size: 40px; } }
 @media (max-width: 767px) {
   .apply-main { padding: 64px 20px 72px; }
+  .pick-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .pick .num, .pick .nm, .pick .en, .pick .when { padding: 0 10px; }
+  .pick .st { margin: 8px 10px 0; }
+  .pick .nm { font-size: 15px; } .pick .en { font-size: 13px; }
   .apply-main h1 { font-size: 30px; }
 }
 form.apply legend.sr-only { position: absolute; float: none; display: block; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
