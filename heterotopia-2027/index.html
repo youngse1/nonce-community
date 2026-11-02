@@ -188,6 +188,8 @@ b,strong{font-weight:700;color:#fff}
 .tl .bd{display:inline-flex;align-items:center;height:14px;padding:0 3px;border-radius:2px;background:var(--lime);color:#1b1b1b;font-size:9.6px;font-weight:700}
 .tl .bd.free{background:#f1f1f1}
 .tl .sm{grid-column:3;font-size:10.3px;color:#8a8a8a;margin-top:3px}
+.tl .c1 .it.multi{grid-template-columns:auto auto auto}
+.tl .c1 .it.multi .sm{grid-column:1/-1}
 .tl .c1,.tl .c2{padding-left:19px}
 .tl .c3{padding-right:19px}
 .tl .c::before{content:"";position:absolute;top:-12px;width:9px;height:21px;border:solid #d5d5d5;border-width:0}
@@ -200,6 +202,14 @@ b,strong{font-weight:700;color:#fff}
 .cmm{margin-top:52px;padding:26px 27px 28px;border-radius:16px}
 .cmm h3{font-size:18.1px;font-weight:600;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:16px}
 .cmm p{font-size:13px;line-height:23px}
+.cmm+.cmm{margin-top:24px}
+.fc{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.fc li{padding:16px 15px 18px;border-radius:10px;background:var(--card)}
+.fc .n{display:block;font-size:13.7px;font-weight:700;color:var(--lime);margin-bottom:10px}
+.fc h4{font-size:13.7px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:8px}
+.fc .q{font-size:12px;line-height:1.6;color:#fff}
+.fc .d{font-size:10.3px;line-height:1.6;color:#8a8a8a;margin-top:6px}
+@media (min-width:768px) and (max-width:1023px){.fc{grid-template-columns:repeat(2,1fr)}}
 
 /* 문의 */
 .rule{width:1280px;max-width:100%;height:1px;margin:0 auto;background:rgba(255,255,255,.14)}
@@ -287,6 +297,11 @@ b,strong{font-weight:700;color:#fff}
   .cmm{margin-top:34px;padding:22px 20px}
   .cmm h3{font-size:17px}
   .cmm p{font-size:13px;line-height:1.75}
+  .cmm+.cmm{margin-top:14px}
+  .fc{grid-template-columns:1fr;gap:10px;margin-top:18px}
+  .fc h4{font-size:14px}
+  .fc .q{font-size:13px;line-height:1.7}
+  .fc .d{font-size:11.5px}
   .more{flex-direction:column;gap:30px;padding:40px 0 56px}
   .more>div,.more>div+div{padding-left:0;flex:none}
   .more h3{font-size:18px;margin-bottom:14px}
@@ -513,6 +528,7 @@ b,strong{font-weight:700;color:#fff}
         <p class="stg">Onboarding Stage</p>
         <div class="it"><span class="m">1월</span><span class="bd">필수</span><span>논스 창업가 하우스 온보딩 반상회</span></div>
         <div class="it"><span></span><span class="bd">필수</span><span>Heterotopia Night</span><span class="sm">입주자 간 친목을 위한 밍글링 프로그램</span></div>
+        <div class="it multi"><span class="m">1월 · 4월 · 7월 · 10월</span><span class="bd">필수</span><span>창업가 커리큘럼</span><span class="sm">3개월마다 4개 세션을 한 번에 진행하는 정식 교육</span></div>
       </div>
       <div class="c c2">
         <p class="stg">Belonging Stage</p>
@@ -532,6 +548,19 @@ b,strong{font-weight:700;color:#fff}
     <p>헤테로토피아에 작동되는 Community Motivation Module은 논스가 커뮤니티를 위해 <b>독자적으로 디자인한 성장 관리 시스템</b>입니다. <br>
     이 모듈을 기반으로 창업가 하우스는 매주 목표 달성 여부를 공유하고, 매월 회고 및 방향성을 재정립하는 반상회 문화가 자리잡고 있습니다. <br>
     주간과 월간의 리듬이 유기적으로 이어지며 구조화된 1년의 과정으로 헤테로토피아 멤버는 체계적인 성장 관리 루틴을 자연스럽게 체득하게 됩니다.</p>
+  </article>
+  <article class="card cmm rv">
+    <h3>+ Founder Curriculum</h3>
+    <p>헤테로토피아의 창업가 교육은 하나의 질문으로 이어집니다. <b>나는 정말 스타트업을 하고 있는가.</b> <br>
+    3개월마다 네 개의 세션을 한 번에 진행하며, <br>
+    내게 주어진 패를 알고, 그 패로 스타트업다운 문제를 고르고, 스타트업 금융 구조를 만들고, 그 금융 위에 조직을 세웁니다. <br>
+    앞 세션의 답이 다음 세션의 전제가 됩니다.</p>
+    <ol class="fc">
+      <li><span class="n">01</span><h4>나의 뿌리를 찾아서</h4><p class="q">나에게 어떤 패가 주어졌는가</p><p class="d">내 패를 알려면 내가 어떤 피(DNA)를 물려받았는지부터 알아야 합니다.</p></li>
+      <li><span class="n">02</span><h4>스타트업의 문제 정의</h4><p class="q">이것은 스타트업이라고 할 수 있는 문제인가</p><p class="d">좋은 장사의 문제와 스타트업의 문제를 구분합니다.</p></li>
+      <li><span class="n">03</span><h4>스타트업의 금융 구조</h4><p class="q">내 금융 구조가 사실 중소기업·소상공인의 구조는 아닌가</p><p class="d">대출과 매출이 아니라, 미래 가치에 대한 지분 투자로 성장하는 구조를 배웁니다.</p></li>
+      <li><span class="n">04</span><h4>스타트업의 조직 운영</h4><p class="q">금융 위에서 구성원의 인센티브를 어떻게 설계하는가</p><p class="d">금융이 스타트업이 아니면 스타트업 조직을 움직일 수 없습니다.</p></li>
+    </ol>
   </article>
 </section>
 
