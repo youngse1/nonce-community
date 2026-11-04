@@ -175,6 +175,8 @@ b,strong{font-weight:700;color:#fff}
 .months{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:1px solid #fff}
 .months span{height:30px;display:flex;align-items:center;padding-left:12px;font-size:14.5px;border-left:1px solid #fff}
 .months span:last-child{border-right:1px solid #fff}
+.crew{display:grid;grid-template-columns:repeat(12,1fr)}
+.crew span{padding:5px 0 0 12px;font-size:10.3px;color:#8a8a8a}
 .bar{display:grid;grid-template-columns:repeat(12,1fr);height:15px;margin-top:6px;font-size:9.8px;font-weight:500;color:#1b1b1b}
 .bar div{display:flex;align-items:center;justify-content:center}
 .bar .on{background:var(--lime);grid-column:span 1}
@@ -188,8 +190,6 @@ b,strong{font-weight:700;color:#fff}
 .tl .bd{display:inline-flex;align-items:center;height:14px;padding:0 3px;border-radius:2px;background:var(--lime);color:#1b1b1b;font-size:9.6px;font-weight:700}
 .tl .bd.free{background:#f1f1f1}
 .tl .sm{grid-column:3;font-size:10.3px;color:#8a8a8a;margin-top:3px}
-.tl .c1 .it.multi{grid-template-columns:auto auto auto}
-.tl .c1 .it.multi .sm{grid-column:1/-1}
 .tl .c1,.tl .c2{padding-left:19px}
 .tl .c3{padding-right:19px}
 .tl .c::before{content:"";position:absolute;top:-12px;width:9px;height:21px;border:solid #d5d5d5;border-width:0}
@@ -198,7 +198,6 @@ b,strong{font-weight:700;color:#fff}
 .tl .c1::after,.tl .c2::after{left:6px;transform:rotate(45deg)}
 .tl .c3::before{right:0;border-right-width:1px;border-bottom-width:1px}
 .tl .c3::after{right:6px;transform:rotate(-135deg)}
-.tl .c2 .it:nth-child(4){margin-top:4px}
 .cmm{margin-top:52px;padding:26px 27px 28px;border-radius:16px}
 .cmm h3{font-size:18.1px;font-weight:600;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:16px}
 .cmm p{font-size:13px;line-height:23px}
@@ -215,7 +214,6 @@ b,strong{font-weight:700;color:#fff}
 .cta a{display:inline-flex;align-items:center;justify-content:center;min-width:300px;height:54px;padding:0 32px;border-radius:999px;background:#f1f1f1;color:#1b1b1b;font-size:18.5px;font-weight:700;transition:background .2s}
 .cta a:hover{background:var(--lime)}
 .cta a:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
-@media (min-width:768px) and (max-width:1023px){.fc{grid-template-columns:repeat(2,1fr)}}
 
 /* 문의 */
 .rule{width:1280px;max-width:100%;height:1px;margin:0 auto;background:rgba(255,255,255,.14)}
@@ -293,7 +291,7 @@ b,strong{font-weight:700;color:#fff}
   .q3 dl dd{font-size:11.5px}
   .journey{padding:40px 0 50px}
   .journey .lead{font-size:15px;line-height:1.7;margin:26px 0 26px}
-  .months,.bar{display:none}
+  .months,.crew,.bar{display:none}
   .tl{grid-template-columns:1fr;row-gap:22px;font-size:14px;margin-top:0}
   .tl .c{padding:0!important}
   .tl .c::before,.tl .c3::before{display:block;left:3px;right:auto;top:34px;bottom:0;width:0;height:auto;border-width:0 0 0 1px;border-color:rgba(255,255,255,.35)}
@@ -528,21 +526,19 @@ b,strong{font-weight:700;color:#fff}
 <!-- 12. 입주 후 여정 -->
 <section class="journey wrap">
   <h3 class="h-sec rv"><img src="/heterotopia-2027/img/ic_surf.png" alt="">입주 후 여정</h3>
-  <p class="lead rv">1년 동안 이어지는 <b>논스의 커뮤니티 프로그램</b>을 통해 입주자들은 서로를 알아가고, 배우고, 협업하며 <br>창업가로서의 여정을 함께 만들어나갑니다.</p>
+  <p class="lead rv">1년 동안 <b>매달 열리는 반상회</b>가 헤테로토피아의 중심입니다. <br>입주자 17명이 조를 나눠 돌아가며 반상회 여행을 기획하고, 다 같이 떠납니다.</p>
   <div class="rv">
     <div class="months"><span>1월</span><span>2월</span><span>3월</span><span>4월</span><span>5월</span><span>6월</span><span>7월</span><span>8월</span><span>9월</span><span>10월</span><span>11월</span><span>12월</span></div>
+    <div class="crew" aria-hidden="true"><span>1조</span><span>2조</span><span>3조</span><span>4조</span><span>5조</span><span>6조</span><span>1조</span><span>2조</span><span>3조</span><span>4조</span><span>5조</span><span>6조</span></div>
     <div class="bar"><div class="on">Onboarding</div><div class="bel">Belonging Stage</div><div class="off">Offboarding</div></div>
     <div class="tl">
       <div class="c c1">
         <p class="stg">Onboarding Stage</p>
         <div class="it"><span class="m">1월</span><span class="bd">필수</span><span>논스 창업가 하우스 온보딩 반상회</span></div>
-        <div class="it"><span></span><span class="bd">필수</span><span>Heterotopia Night</span><span class="sm">입주자 간 친목을 위한 밍글링 프로그램</span></div>
-        <div class="it multi"><span class="m">2월 · 5월 · 8월 · 11월</span><span class="bd">필수</span><span>창업가 교육</span><span class="sm">3개월마다 4개 세션을 두 번에 진행하는 정식 교육</span></div>
       </div>
       <div class="c c2">
         <p class="stg">Belonging Stage</p>
-        <div class="it"><span class="m">3월 ~ 12월</span><span class="bd">필수</span><span>매월 창업가 하우스 반상회</span></div>
-        <div class="it"><span class="m" style="visibility:hidden">3월 ~ 12월</span><span class="bd free">자율</span><span>창업가 하우스 멤버 자율 프로그램</span></div>
+        <div class="it"><span class="m">1월 ~ 12월</span><span class="bd">필수</span><span>매월 반상회 여행</span><span class="sm">17명이 6개 조로 나눠 돌아가며 기획합니다</span></div>
         <div class="it"><span class="m">6월</span><span class="bd">필수</span><span>상반기 도전 보고회</span></div>
       </div>
       <div class="c c3">
@@ -559,16 +555,13 @@ b,strong{font-weight:700;color:#fff}
     주간과 월간의 리듬이 유기적으로 이어지며 구조화된 1년의 과정으로 헤테로토피아 멤버는 체계적인 성장 관리 루틴을 자연스럽게 체득하게 됩니다.</p>
   </article>
   <article class="card cmm rv">
-    <h3>+ Founder Curriculum</h3>
-    <p>헤테로토피아의 창업가 교육은 하나의 질문으로 이어집니다. <b>나는 정말 스타트업을 하고 있는가.</b> <br>
-    3개월마다 네 개의 세션을 두 번에 나눠(세션 1·2, 세션 3·4) 진행하며, <br>
-    내게 주어진 패를 알고, 그 패로 스타트업다운 문제를 고르고, 스타트업 금융 구조를 만들고, 그 금융 위에 조직을 세웁니다. <br>
-    앞 세션의 답이 다음 세션의 전제가 됩니다.</p>
-    <ol class="fc">
-      <li><span class="n">01</span><h4>나의 뿌리를 찾아서</h4><p class="q">나에게 어떤 패가 주어졌는가</p><p class="d">내 패를 알려면 내가 어떤 피(DNA)를 물려받았는지부터 알아야 합니다.</p></li>
-      <li><span class="n">02</span><h4>스타트업의 문제 정의</h4><p class="q">이것은 스타트업이라고 할 수 있는 문제인가</p><p class="d">좋은 장사의 문제와 스타트업의 문제를 구분합니다.</p></li>
-      <li><span class="n">03</span><h4>스타트업의 금융 구조</h4><p class="q">내 금융 구조가 사실 중소기업·소상공인의 구조는 아닌가</p><p class="d">대출과 매출이 아니라, 미래 가치에 대한 지분 투자로 성장하는 구조를 배웁니다.</p></li>
-      <li><span class="n">04</span><h4>스타트업의 조직 운영</h4><p class="q">금융 위에서 구성원의 인센티브를 어떻게 설계하는가</p><p class="d">금융이 스타트업이 아니면 스타트업 조직을 움직일 수 없습니다.</p></li>
+    <h3>+ 반상회 여행</h3>
+    <p>헤테로토피아의 반상회는 매달 다 같이 떠나는 여행으로 열립니다. <br>
+    입주자 17명이 6개 조로 나눠 차례가 된 달의 여행을 기획하고, <b>모든 입주자가 반드시 참석합니다.</b></p>
+    <ol class="fc three">
+      <li><span class="n">01</span><h4>의무 참석</h4><p class="q">3회 불참 시 퇴실</p><p class="d">반상회는 모든 입주자가 반드시 참석합니다. 1년 동안 세 번 빠지면 입주 계약이 끝납니다.</p></li>
+      <li><span class="n">02</span><h4>조별 기획</h4><p class="q">6개 조, 조마다 1년에 두 번</p><p class="d">두세 명이 한 조가 되어 차례가 된 달의 여행을 기획합니다.</p></li>
+      <li><span class="n">03</span><h4>참가비</h4><p class="q">1인 최대 10만원</p><p class="d">여행 경비는 한 사람당 10만원 안에서 기획합니다.</p></li>
     </ol>
   </article>
   <article class="card cmm rv">
