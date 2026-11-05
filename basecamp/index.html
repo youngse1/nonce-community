@@ -206,7 +206,7 @@ b,strong{font-weight:700;color:#fff}
 .mem .note{text-align:right;font-size:calc(11*var(--u));color:#cfd0d1;margin-top:calc(16*var(--u))}
 
 .proc{padding-top:calc(80*var(--u))}
-.proc .h-sec,.lounge .h-sec,.faq .h-sec,.rules .h-sec,.jr .h-sec{margin-bottom:calc(34*var(--u))}
+.proc .h-sec,.lounge .h-sec,.faq .h-sec,.jr .h-sec{margin-bottom:calc(34*var(--u))}
 .proc .p20,.lounge .p20{padding-left:calc(9*var(--u));font-size:calc(19*var(--u));letter-spacing:-.025em}
 .steps{display:flex;align-items:center;justify-content:space-between;margin:calc(32*var(--u)) 0 calc(36*var(--u))}
 .steps span{display:inline-flex;align-items:center;gap:calc(7*var(--u));height:calc(52*var(--u));padding:0 calc(17*var(--u));border-radius:999px;background:var(--card);font-size:calc(17*var(--u));white-space:nowrap}
@@ -232,14 +232,6 @@ b,strong{font-weight:700;color:#fff}
 .qa h4{font-size:calc(19*var(--u));font-weight:700;letter-spacing:-.02em;padding:calc(6*var(--u)) 0 calc(20*var(--u));border-bottom:1px solid var(--line);margin-bottom:calc(18*var(--u))}
 .qa p{font-size:calc(15*var(--u));line-height:calc(28*var(--u));color:#e4e5e6}
 
-.rules{padding-top:calc(90*var(--u))}
-.rules .p20{margin-bottom:calc(28*var(--u))}
-.rl{padding:calc(23*var(--u)) calc(32*var(--u)) calc(28*var(--u))}
-.rl+.rl{margin-top:calc(18*var(--u))}
-.rl ol{list-style:none;counter-reset:r}
-.rl li{counter-increment:r;display:flex;gap:calc(10*var(--u));font-size:calc(15*var(--u));line-height:calc(26*var(--u));color:#e4e5e6}
-.rl li+li{margin-top:calc(4*var(--u))}
-.rl li::before{content:counter(r,decimal-leading-zero);flex:none;width:calc(22*var(--u));color:var(--muted);font-variant-numeric:tabular-nums}
 
 .jr{padding-top:calc(90*var(--u))}
 .jr .p20{margin-bottom:calc(36*var(--u))}
@@ -292,10 +284,10 @@ b,strong{font-weight:700;color:#fff}
   .faq .h-sec{font-size:20px}
   .ico{width:22px;height:22px}
   .chd,.cm h3,.nw h3,.fields h3,.cmm .chd{font-size:17px}
-  .cbody,.qt p,.fac p,.qa p,.rl li,.cmm p,.mem li{font-size:14px;line-height:1.75}
+  .cbody,.qt p,.fac p,.qa p,.cmm p,.mem li{font-size:14px;line-height:1.75}
   .badge{font-size:12.5px;height:24px;padding:0 8px}
   .card{border-radius:10px}
-  .fac,.mem,.qa,.rl,.cmm,.nw,.qt,.mix{padding-left:20px;padding-right:20px}
+  .fac,.mem,.qa,.cmm,.nw,.qt,.mix{padding-left:20px;padding-right:20px}
   .stories{column-gap:10px;row-gap:10px}
   .cgrid{grid-template-columns:1fr}
   .cm{padding:22px 20px}
@@ -606,32 +598,6 @@ b,strong{font-weight:700;color:#fff}
   </div></div>
 </section>
 
-<section class="col rules">
-  <h3 class="h-sec rv"><img class="ico" src="/basecamp/img/ic_hands.png" alt="">함께 지키는 약속</h3>
-  <p class="p20 rv">라운지에서는 교류하고, 좌석에서는 집중합니다.<br> 규칙은 매월 반상회에서 함께 고쳐 나갑니다.</p>
-  <article class="card rl rv">
-    <h4 class="chd">공간 사용</h4>
-    <ol>
-      <li>공간을 깨끗이 쓰고, 쓰레기는 꼭 분리수거합니다.</li>
-      <li>청소는 일주일에 3회 진행됩니다. 중요한 물건은 잘 챙겨 주세요.</li>
-      <li>회의실·라운지는 예약 후 쓰고, 쓴 뒤에는 정리합니다. 정식 멤버 외 대관은 금지합니다.</li>
-      <li>식사는 라운지에서만 합니다. 음식물 쓰레기는 버릴 수 없으니 남기지 않을 때만 가능합니다.</li>
-      <li>반려동물은 데려오지 않습니다.</li>
-      <li>쓰지 않는 가전·조명·냉난방은 전원을 끕니다.</li>
-      <li>밤늦게 큰 소리를 내지 않고, 음주는 금지합니다.</li>
-      <li>온라인 미팅은 반드시 회의실에서 합니다.</li>
-    </ol>
-  </article>
-  <article class="card rl rv">
-    <h4 class="chd">관계 문화</h4>
-    <ol>
-      <li>조용한 코워킹이 아니라 서로 인사하는 문화가 기본입니다.</li>
-      <li>불편한 행동에 개선을 요청할 때는 ‘인간적으로 존중하지만 아닌 것은 아니다’라고 정중히 말합니다.</li>
-      <li>서로에게 관심을 갖고 친절하되, 상대가 불편해하면 더 다가가지 않습니다.</li>
-    </ol>
-  </article>
-</section>
-
 <section class="col jr">
   <h3 class="h-sec rv"><img class="ico" src="/basecamp/img/ic_climb.png" alt="">입주 후 여정</h3>
   <p class="p20 rv">27년도 26년과 같은 1년의 시스템으로 운영합니다.<br> <b>1년 동안 이어지는 베이스캠프 프로그램</b>을 통해<br> 입주자들은 서로를 알아가고, 배우고, 협업하며<br> 창업가로서의 여정을 함께 만들어나갑니다.</p>
@@ -652,13 +618,11 @@ b,strong{font-weight:700;color:#fff}
     <div class="grp">
       <div class="row"><span class="m">2–12월</span><span class="badge">필수</span><span class="tx">베이스캠프 반상회<small>매월</small></span></div>
       <div class="row"><span class="m">2–12월</span><span class="badge w">자율</span><span class="tx">소속 커뮤니티 행사</span></div>
-      <div class="row"><span class="m">3월</span><span></span><span class="tx">커뮤니티데이</span></div>
       <div class="row"><span class="m">6월</span><span class="badge">필수</span><span class="tx">도전 보고회</span></div>
       <div class="row"><span class="m">2·5·9·11월</span><span></span><span class="tx">커뮤니티 리더 반상회</span></div>
     </div>
     <h5>Offboarding Stage</h5>
     <div class="grp end">
-      <div class="row"><span class="m">12월</span><span class="badge">필수</span><span class="tx">Demo Day</span></div>
       <div class="row"><span class="m">12월</span><span class="badge">필수</span><span class="tx">송별회</span></div>
       <div class="row"><span class="m">12월</span><span></span><span class="tx">회고 인터뷰</span></div>
     </div>
