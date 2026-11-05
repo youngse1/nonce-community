@@ -252,6 +252,13 @@ b,strong{font-weight:700;color:#fff}
 .tlc .badge{height:calc(28*var(--u));width:calc(47*var(--u));justify-content:center;padding:0;font-size:calc(14*var(--u))}
 .tlc .tx{font-size:calc(18.5*var(--u));line-height:1.35}
 .tlc .tx small{font-size:calc(10.5*var(--u));color:#9c9ea0;margin-left:calc(5*var(--u))}
+.fin{margin-top:calc(34*var(--u))}
+.fin ol{list-style:none;display:flex;flex-direction:column;gap:calc(10*var(--u));margin-top:calc(24*var(--u))}
+.fin li{padding:calc(18*var(--u)) calc(20*var(--u)) calc(20*var(--u));border-radius:calc(8*var(--u));background:rgba(255,255,255,.05)}
+.fin .n{display:block;font-size:calc(14*var(--u));font-weight:700;color:#7d9bff;margin-bottom:calc(8*var(--u))}
+.fin h5{font-size:calc(17*var(--u));font-weight:700;line-height:1.3;letter-spacing:-.02em}
+.fin li .q{font-size:calc(15*var(--u));line-height:1.5;color:#fff;margin-top:calc(6*var(--u))}
+.fin li .d{font-size:calc(13*var(--u));line-height:1.6;color:var(--muted);margin-top:calc(6*var(--u))}
 
 /* 11. 문의 */
 .rule{height:1px;background:rgba(255,255,255,.22);margin-top:calc(42*var(--u))}
@@ -339,6 +346,11 @@ b,strong{font-weight:700;color:#fff}
   .tlc .badge{width:38px;height:23px;font-size:11.5px}
   .tlc .tx{font-size:14px}
   .tlc .tx small{display:block;margin:2px 0 0;font-size:11px}
+  .fin li{padding:16px 16px 18px}
+  .fin .n{font-size:12.5px}
+  .fin h5{font-size:15px}
+  .fin li .q{font-size:14px}
+  .fin li .d{font-size:12.5px}
   .more .r{flex-direction:column;align-items:flex-start;gap:12px}
   .more h3{font-size:17px}
   .more a{font-size:14px;height:38px}
@@ -626,6 +638,16 @@ b,strong{font-weight:700;color:#fff}
       <div class="row"><span class="m">12월</span><span class="badge">필수</span><span class="tx">송별회</span></div>
       <div class="row"><span class="m">12월</span><span></span><span class="tx">회고 인터뷰</span></div>
     </div>
+  </article>
+  <article class="card cmm fin rv">
+    <h4 class="chd">논스 금융</h4>
+    <p>논스 금융은 데스커 베이스캠프에서 일하는 창업가가 자금 문제로 도전을 멈추지 않도록 마련한 논스의 창업 지원 프로그램입니다.</p>
+    <p><b>모든 지원은 심사를 통해 진행되며</b>, 입주가 지원을 보장하지는 않습니다. 지원 여부와 금액, 조건은 심사 결과와 개별 계약에 따라 달라질 수 있습니다.</p>
+    <ol>
+      <li><span class="n">01</span><h5>투자</h5><p class="q">5천만원~최대 1억원</p><p class="d">심사를 거쳐 선정된 팀에 투자합니다. 금액과 조건은 팀별로 정합니다.</p></li>
+      <li><span class="n">02</span><h5>자금 대여</h5><p class="q">최대 1,000만원, 무이자</p><p class="d">심사를 거쳐 이자 없이 자금을 빌려드립니다. 금액과 상환 조건은 개별 계약으로 정합니다.</p></li>
+      <li><span class="n">03</span><h5>재기 지원</h5><p class="q">스타트업 청산 시 생활비 지원</p><p class="d">스타트업을 청산할 때 심사를 거쳐 생활비 지원을 검토합니다. 보험 상품이 아닙니다.</p></li>
+    </ol>
   </article>
 </section>
 
